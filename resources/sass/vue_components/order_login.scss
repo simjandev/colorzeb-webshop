@@ -1,0 +1,15 @@
+.order-login-box {
+    height: 289px;
+
+    &:last-child {
+        border-left: 2px dotted $first;
+    }
+}
+
+#login-button-box {
+    margin-bottom: 10px;
+}
+
+li {
+    line-height: 28px;
+}

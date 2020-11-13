@@ -1,0 +1,51 @@
+@import '../variables';
+
+$height: 36px;
+$track-height: 6px;
+$handle-size: 20px;
+$handle-border-radius: $handle-size / 2;
+
+$track-color: $white;
+$handle-color: $secondary;
+$handle-hover-color: $white;
+
+.slider {
+    position: relative;
+    display: block;
+    height: $height;
+    user-select: none;
+}
+
+.slider-track {
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    top: $height / 2 - $track-height / 2;
+    background-color: $track-color;
+    border-radius: 4px;
+}
+
+.slider-track-coloring {
+    position: absolute;
+    height: 6px;
+    top: $height / 2 - $track-height / 2;
+    background-color: $handle-color;
+    z-index: 2;
+}
+
+.handle {
+    box-sizing: border-box;
+    position: absolute;
+    width: $handle-size;
+    height: $handle-size;
+    top: $height / 2 - $handle-size / 2;
+    background-color: $handle-color;
+    border-radius: $handle-border-radius;
+    cursor: pointer;
+    z-index: 3;
+    border: 1px solid transparent;
+
+    &:hover {
+        border: 2px solid $handle-hover-color;
+    }
+}

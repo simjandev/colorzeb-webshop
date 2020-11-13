@@ -1,0 +1,37 @@
+@import '../variables';
+
+#navbar-cart-value,
+#navbar-cart-value-currency,
+#navbar-cart-icon {
+    display: inline-block;
+    float: right;
+    color: $white;
+    line-height: 41px;
+}
+
+#navbar-cart {
+    width: 130px;
+    
+    padding-right: 2px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: $secondary;
+    margin-right: 10px;
+    transition: .1s;
+
+    &:hover {
+        background-color: $secondary-dark;
+    }
+    
+}
+
+#navbar-cart-icon {
+    font-size: 32px;
+    margin-left: 6px;
+    margin-right: 10px;
+}
+
+#cart-icon:hover {
+    color: $white;
+}

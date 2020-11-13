@@ -1,0 +1,39 @@
+#cart-sum {
+  height: 35px;
+  line-height: 35px;
+}
+
+#cart-sum .alignment-column {
+  background-color: transparent;
+  border-color: transparent;
+  border-right-color: #b4b4b4 !important;
+}
+
+#cart-sum .cart-sum-name {
+  box-sizing: border-box;
+  padding: 0px;
+  padding-right: 10px;
+  width: 180px;
+  height: 35px;
+  line-height: 35px;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: right;
+}
+
+#cart-sum .cart-sum-value {
+  box-sizing: border-box;
+  padding: 0px;
+  padding-left: 0px;
+  width: 120px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  font-size: 15px;
+}
+
+#cart-sum th {
+  padding-right: 0px !important;
+  text-align: center !important;
+}
+

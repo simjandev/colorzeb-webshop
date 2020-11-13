@@ -1,0 +1,223 @@
+@import 'variables';
+
+#product {
+    button {
+        display: block;
+    }
+
+    #menu-buttons {
+        box-sizing: border-box;
+        display: block;
+        text-align: center;
+        height: 37px;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    #menu-buttons-divider {
+        margin-top: 0px;
+        background-color: $border-color;
+        margin-bottom: 35px;
+    }
+
+    #save-button {
+        float: right;
+        margin: 0px;
+        margin-bottom: 5px;
+        margin-left: 5px;
+    }
+
+    button.menu-button {
+        box-sizing: border-box;
+        display: inline-block;
+        float: left;
+        width: 150px;
+        margin: 0px !important;
+        margin-top: 5px !important;
+        box-shadow: 0px !important;
+        border-radius: 0px;
+        border: 0px;
+        background-color: rgb(225, 225, 225);
+        color: $font-color-light;
+
+        &.active, &:active, &:focus {
+            background-color: $secondary !important;
+            color: $white;
+        }
+
+        &:focus, &:active {
+            box-shadow: none !important;
+        }
+    }
+
+    #images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 6px;
+        margin-bottom: 10px;
+    }
+
+    .image {
+        margin: 6px;
+        width: 90px;
+        height: 90px;
+
+        img {
+            width: 90px;
+            height: 90px;
+        }
+    }
+    
+    .divider {
+        margin-top: 125px;
+    }
+
+    h5 {
+        font-size: 19px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    input, textarea, select, .form-check, button, table#image-list{
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    .form-group div:not(.form-check) {
+        text-align: right;
+        padding-right: 20px;
+    }
+
+    #active-checkbox {
+        margin-top: -15px;
+    }
+    
+    #active {
+        margin-left: 4px;
+    }
+
+    #active-checkbox-label {
+        padding-top: 10px;
+    }
+
+    #file-upload-box {
+        width: 100%;
+        height: 50px;
+
+        div {
+            display: inline-block;
+            float: left;
+            width: calc(100% - 115px);
+            
+        }
+
+        button {
+            display: inline-block;
+            float: right;
+            margin: auto;
+            margin-left: 15px;
+            height: 38px;
+            width: 100px;
+            text-align: center;
+        }
+    }
+
+    #image-upload-button {
+        margin: auto;
+    }
+
+    .table {
+        button {
+            font-weight: bold;
+            line-height: 28px;
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            padding-left: 8px;
+        }
+    
+        input, select {
+            height: 30px;
+            font-size: 13px;
+            margin-top: 11px;
+            
+        }
+
+        thead > tr {
+            height: 10px;
+            line-height: 10px;
+        }
+
+        tr, td {
+            box-sizing: border-box;
+            height: 40px;
+            padding: 0px;
+        }
+
+        td {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
+    #image-list {
+        td:nth-child(2) {
+            width: 180px;
+        }
+        
+        td:nth-child(3) {
+            width: 150px;
+        }
+
+        td:nth-child(5), td:nth-child(1) {
+            width: 50px;
+            text-align: center;
+
+            img {
+                width: 50px;
+                height: 50px;
+                margin-top: 3px;
+            }
+        }
+    }
+
+    #custom-parameters {
+        td:nth-child(1) {
+            width: 82px;
+            line-height: 57px;
+        }
+
+        td:nth-child(2) {
+            width: 170px;
+        }
+
+        td:nth-child(3) {
+            width: 200px;
+        }
+    }
+
+    #parameter-settings {
+        .c-param1, .c-param2, .c-param3 {
+            width: 150px;
+        }
+
+        .c-price, .c-shipping-price {
+            width: 110px;
+        }
+
+        .c-delete {
+            width: 50px;
+            text-align: center;
+            button {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/ui_custom.css": "/css/ui_custom.css",
+    "/css/home.css": "/css/home.css",
+    "/css/search_products.css": "/css/search_products.css",
+    "/css/product_details.css": "/css/product_details.css",
+    "/css/order_confirm.css": "/css/order_confirm.css",
+    "/css/admin_search_products.css": "/css/admin_search_products.css"
+}

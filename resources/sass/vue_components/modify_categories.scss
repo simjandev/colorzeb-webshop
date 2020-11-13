@@ -1,0 +1,38 @@
+#categories {
+    margin-top: 5px;
+    
+    tbody{
+        td {
+            text-align: center;
+        }
+
+        td:nth-child(1) {
+            width: 50px;
+            line-height: 41px;
+            padding: 0px;
+        }
+
+        td:nth-child(3), td:nth-child(4){
+            width: 75px;
+        }
+
+        button {
+            box-sizing: content-box;
+            height: 32px;
+            width: 32px;
+            padding: 0px;
+        }
+
+        input {
+            height: 34px;
+        }
+    }
+
+    #new-category-name {
+        width: calc(100% - 160px);
+    }
+
+    #new-category-button {
+        width: 120px;
+    }
+}

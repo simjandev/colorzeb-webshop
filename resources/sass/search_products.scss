@@ -1,0 +1,315 @@
+@import 'variables';
+
+#products-page {
+    margin: 0px;
+    padding: 0px;
+}
+
+#products {
+    margin: 0px;
+    border-left: 2px dotted $first;
+    padding-left: 0px;
+    min-height: 1200px;
+    align-content: flex-start;
+}
+
+.product-box {
+    padding: 10px;
+    animation: .75s ease 1 fade forwards;
+    opacity: 0;
+}
+
+.product-inner-box {
+    background-color: $white;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    padding-bottom: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 3px 0px rgba(120, 120, 120, 0.35);
+    cursor: pointer;
+
+    .product-image-box {
+        position: relative;
+        width: 100%;
+        margin: 0px;
+        margin-bottom:5px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            transform: scale(1.1);
+            transition: .3s;
+        }
+
+        .product-box-colors {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            display: flex;
+            flex-wrap: wrap;
+            display: inline-block;
+
+            .product-color-symbol {
+                width: 20px;
+                height: 20px;
+                border-radius: 10px;
+                margin: 5px;
+            }
+        }
+
+        .product-box-discount {
+            position: absolute;
+            font-size: 16px;
+            font-weight: bold;
+            width: 70px;
+            height: 28px;
+            line-height: 28px;
+            border-radius: 4px;
+            top: 5px;
+            right: 5px;
+            z-index: 2;
+            text-align: center;
+            background-color: $discount;
+            color: white;
+        }
+    }
+
+    .product-name, .product-price, .product-old-price {
+        width: 100%;
+        padding-left: 2px;
+        color: rgb(0, 0, 0);
+    }
+
+    .product-name {
+        font-size: 18px;
+    }
+
+    .product-bottom-box {
+        box-sizing: border-box;
+        display: block;
+    }
+
+    .product-price-box {
+        box-sizing: border-box;
+        display: inline-block;
+        float: left;
+    }
+
+    .product-add-to-cart-button, .view-product-button, .edit-product-button {
+        box-sizing: border-box;
+        display: inline-block;
+        float: right;
+        color: $white;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        padding: 0px;
+        padding-right: 4px;
+        text-align: center;
+        font-size: 22px;
+        margin-bottom: 14px;
+        margin-top: 11px;
+    }
+
+    .view-product-button {
+        padding-left: 6px;
+    }
+
+    .edit-product-button {
+        margin-right: 5px;
+        padding-left: 6px;
+    }
+
+    .product-price {
+        color: $first-dark;
+        font-weight: bold;
+        margin-top: 10px;
+        font-size: 21px;
+    }
+
+    .product-old-price {
+        text-decoration: line-through;
+        color: $font-color-light;
+        font-size: 16px;
+        margin-top: -5px;
+        height: 20px;
+    }
+
+    &:hover {
+        border-color: rgba(0, 0, 0, 0.4);
+
+        img {
+            transform: scale(1.01);
+        }
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    1% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@for $i from 1 through 100 {
+    .product-box {
+        &:nth-child(#{$i}) {
+            animation-delay: ($i * .07s) !important;
+        }
+    }
+}
+
+nav:not(#navbar) {
+    height: 38px;
+    margin: auto;
+
+    &:first-of-type {
+        margin-bottom: 30px;
+    }
+
+    &:last-of-type {
+        margin-top: 30px;
+    }
+}
+
+li.page-item {
+    a.page-link, span.page-link {
+        color: $font-color-light;
+    }
+
+    &.hidden {
+        display: none;
+    }
+
+    &.active, &:first-of-type, &:last-of-type {
+        a.page-link, span.page-link {
+            background-color: $secondary;
+            border-color: $secondary;
+            color: $white;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        &:hover a.page-link{
+            
+        }
+
+        &.previous a.page-link {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        &.next a.page-link {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    }
+
+    &.disabled,
+    &.disabled {
+        cursor: not-allowed;
+    }
+
+    &.active>a.page-link{
+        border: 1px solid #dee2e6;
+    }
+}
+
+label[for=discount-filter].form-check-label {
+    color: $discount;
+    font-weight: bold;
+    font-size: 14px;
+
+    i {
+        font-size: 20px;
+    }
+}
+
+#filter-text {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    height: 32px;
+}
+
+#filter-price-box {
+    display: block;
+    height: 40px;
+    margin-bottom: 40px;
+}
+
+#filter-min-price {
+    display: inline-block;
+    box-sizing: border-box;
+    float: left;
+    font-size: 14px;
+    width: calc(50% - 10px);
+    height: 30px;
+    margin-top: 2px;
+}
+
+#filter-max-price {
+    display: inline-block;
+    box-sizing: border-box;
+    float: left;
+    font-size: 14px;
+    width: calc(50% - 10px);
+    height: 30px;
+    margin-top: 2px;
+}
+
+#filter-price-divider {
+    display: inline-block;
+    box-sizing: border-box;
+    float: left;
+    width: 20px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 2px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.filter-label {
+    margin-top: 30px;
+}
+
+.filter {
+    padding: 0px;
+    padding-right: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.filter-box {
+    display: block;
+    margin-bottom: 10px;
+    
+    font-size: 15px;
+    width: 90%;
+
+    label::after, label::before {
+        top: 1px;
+        height: 20px;
+        width: 20px;
+        font-size: 13px;
+    }
+
+    input[type="checkbox"]:checked + label::before,
+    input[type="radio"]:checked + label::before {
+        background-color: $secondary;
+        border-color: $secondary-dark;
+    }
+}

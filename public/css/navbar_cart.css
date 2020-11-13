@@ -1,0 +1,36 @@
+#navbar-cart-value,
+#navbar-cart-value-currency,
+#navbar-cart-icon {
+  display: inline-block;
+  float: right;
+  font-weight: bold;
+}
+
+#navbar-cart {
+  width: 120px;
+  text-align: right;
+  color: white;
+  height: 40px;
+  line-height: 41px;
+  border-radius: 4px;
+  background-color: #2073d1;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.1s;
+}
+
+#navbar-cart:hover {
+  background-color: #095fc2;
+}
+
+#navbar-cart-icon {
+  font-size: 32px;
+  margin-left: 6px;
+  margin-right: 10px;
+  color: white;
+}
+
+#cart-icon:hover {
+  color: white;
+}
+

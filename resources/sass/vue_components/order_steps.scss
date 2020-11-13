@@ -1,0 +1,124 @@
+#step-bar-titles {
+    display: block;
+    margin: 0px;
+    height: 46px;
+    text-align: center;
+    user-select: none;
+
+    li {
+        box-sizing: border-box;
+        position: relative;
+        display: inline-block;
+        width: 24%;
+        height: 46px;
+        line-height: 46px;
+        text-align: center;
+        list-style: none;
+        font-size: 17px;
+
+        &.active {
+            color: $secondary-dark;
+        }
+
+        &.finished {
+            color: $green;
+        }
+    }
+}
+
+#step-bar {
+    display: block;
+    margin: 0px;
+    margin-bottom: 35px;
+    height: 50px;
+    text-align: center;
+    user-select: none;
+    
+    li {
+        position: relative;
+        display: inline-block;
+        width: 24%;
+        height: 46px;
+        line-height: 46px;
+        text-align: center;
+        color: $white;
+        list-style: none;
+
+        &:not(:first-child) {
+            
+        }
+
+        &:not(:first-child):before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            top: 19px;
+            left: -50%;
+            background-color: $green;
+            z-index: 0;
+        }
+
+        &.active .wrap {
+            box-sizing: border-box;
+            box-shadow: 0px 0px 0px 4px $background;
+        }
+
+        &.active ~ li:before {
+            background-color: $secondary-light;
+        }
+
+        &.active ~ li .wrap {
+            background-color: $secondary-light;
+        }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            border-radius: 23px;
+            width: 46px;
+            height: 46px;
+            background-color: $secondary;
+            color: $white;
+            cursor: pointer;
+            margin: auto;
+            text-align: center;
+        }
+
+        &.finished .wrap {
+            background-color: $green;
+        }
+    }
+
+    li:nth-child(1), li:nth-child(3) {
+        .wrap {
+            padding-right: 2px;
+        }
+    }
+    
+    li:nth-child(4) {
+        .wrap {
+            padding-left: 3px;
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    #step-bar-titles li {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 946px) {
+    #step-bar-titles li {
+        
+        display: none;
+
+        &.active {
+            width: 100%;
+            display: inline-block;
+            font-size: 18px;
+            color: #212529;
+        }
+    }
+}

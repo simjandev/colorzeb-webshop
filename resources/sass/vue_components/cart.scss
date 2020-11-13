@@ -1,0 +1,48 @@
+@import 'variables.scss';
+
+#cart-sum {
+    height: 35px;
+    line-height: 35px;
+
+    .alignment-column {
+        border-color: transparent;
+        border-right-color: $border-color !important;
+        background-color: $background !important;
+    }
+
+    .cart-sum-name {
+        box-sizing: border-box;
+        padding: 0px;
+        padding-right: 10px;
+        width: 180px;
+        height: 35px;
+        line-height: 35px;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: right;
+    }
+
+    .cart-sum-value {
+        box-sizing: border-box;
+        padding: 0px;
+        padding-left: 0px;
+        width: 120px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    th {
+        padding-right: 0px !important;
+        text-align: center !important;
+    }
+}
+
+#payment-button-box {
+    padding-right: 1px;
+}
+
+#payment-button {
+    width: 100px;
+}

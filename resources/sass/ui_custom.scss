@@ -1,0 +1,316 @@
+@import 'variables';
+
+nav#navbar {
+    background-color: $first;
+    font-family: colorzeb;
+
+    
+    .container {
+        max-width: 1600px;
+    }
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: $white !important;
+    font-size: 17px;
+
+    &:hover {
+        color: rgb(235, 235, 235) !important;
+    }
+}
+
+.dropdown-item:hover,
+.dropdown-item.focus,
+.dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: $first !important;
+}
+
+.card, .card-header {
+    border-color: rgb(210, 210, 210);
+}
+
+.card-header{
+    background-color: rgb(225, 225, 225);
+}
+
+.card.colored, .card-header.colored {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.card-header.colored {
+    background-color: $first;
+    color: $white;
+}
+
+// link
+.btn:focus{
+    box-shadow: none;
+}
+
+.btn-link {
+    color: $first;
+}
+
+.btn-link:hover {
+    color: $first-dark;
+}
+
+.btn-primary{
+    color: $white;
+    background-color: $first;
+    border-color: $first;
+
+    &.blue {
+        background-color: $secondary;
+        border-color: $secondary;
+    }
+}
+
+.btn:hover, .btn:focus,
+.btn-primary:hover, .btn-primary:focus {
+    color: $white;
+    background-color: $first-dark;
+    border-color: $first-dark2;
+
+    &.blue {
+        background-color: $secondary-dark;
+        border-color: $secondary-dark2;
+    }
+}
+
+.btn:active{
+    color: $white;
+    background-color: $first-dark2;
+    border-color: $first-dark2;
+    
+    &.blue {
+        background-color: $secondary-dark2;
+        border-color: $secondary-dark2;
+    }
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+    color: $white;
+    background-color: $first-dark2;
+    border-color: $first-dark2;
+    box-shadow: 0 0 0 0.2rem rgba($first-dark, 0.5);
+
+}
+
+.form-control:focus {
+    border-color: $first-light;
+    box-shadow: 0 0 0 0.2rem rgba($first-dark, 0.25);
+
+    &.blue {
+        border-color: $secondary-light;
+        box-shadow: 0 0 0 0.2rem rgba($secondary-dark, 0.25);
+    }
+}
+
+.form-check {
+    padding-left: 20px;
+
+    label {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        padding-left: 5px;
+    }
+}
+
+  .form-check label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 0;
+    margin-left: -20px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.form-check label::after {
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    top: 0;
+    margin-left: -20px;
+    padding-left: 3px;
+    padding-top: 1px;
+    font-size: 11px;
+    color: #555555;
+
+}
+
+.form-check input[type="checkbox"],
+.form-check input[type="radio"] {
+    opacity: 0;
+    z-index: 1;
+}
+
+.form-check input[type="checkbox"]:focus + label::before,
+.form-check input[type="radio"]:focus + label::before {
+    outline: none;
+}
+
+.form-check input[type="checkbox"]:checked + label::after,
+.form-check input[type="radio"]:checked + label::after {
+    font-family: "FontAwesome";
+    content: "\f00c";
+    color: #fff;
+
+}
+
+.form-check input[type="checkbox"].discount-tag:checked + label::after {
+    background-color: $discount;
+    border-color: $discount;
+    border-radius: 3px;
+    content: "\f02c";
+}
+
+.form-check input[type="checkbox"]:checked + label::before,
+.form-check input[type="radio"]:checked + label::before {
+    background-color: $first;
+    border-color: $first-dark;
+}
+
+.form-check input[type="checkbox"]:checked + label::before,
+.form-check input[type="radio"]:checked + label::before {
+    background-color: $secondary;
+    border-color: $secondary-dark;
+}
+
+
+/*
+    Custom button instead of the bootstrap one
+*/
+.button, .btn-primary:not(:disabled) {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    background-color: $first-light;
+    border-color: $first-light;
+    color: $white;
+    height: 32px;
+    line-height: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: .1s;
+
+    &.blue {
+        background-color: $secondary;
+        border-color: $secondary;
+    }
+
+    &.red {
+        background-color: $red;
+        border-color: $red;
+    }
+
+    &:hover {
+        color: $white;
+        background-color: $first;
+        border-color: $first;
+        outline: none;
+
+        &.blue {
+            background-color: $secondary-dark;
+            border-color: $secondary-dark;
+        }
+
+        &.red {
+            background-color: $red-dark;
+            border-color: $red-dark;
+        }
+    }
+
+    &:active, &:focus {
+        color: $white;
+        background-color: $first-dark2;
+        border-color: $first-dark2;
+        box-shadow: none;
+        outline: none;
+
+        &.blue {
+            background-color: $secondary-dark2 !important;
+            border-color: $secondary-dark2 !important;
+            box-shadow: 0 0 0 0.2rem rgba($secondary-dark, 0.5) !important;
+        }
+
+        &.red {
+            background-color: $red-dark2;
+            border-color: $red-dark2;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:disabled {
+        background-color: $disabled;
+        border: 1px solid rgb(0, 0, 0);
+        color: $white;
+        cursor: normal;
+
+        &.blue {
+            background-color: $disabled;
+            border: 1px solid rgb(0, 0, 0);
+            color: $white;
+            cursor: normal;
+        }
+    }
+}
+
+.table.table-bordered {
+    border-color: rgb(210, 210, 210);
+    background-color: rgb(252, 252, 252);
+    td, tr, th {
+        border-color: rgb(210, 210, 210);
+    }
+
+    th {
+        background-color: rgb(225, 225, 225);
+        text-align: center;
+    }
+}
+
+.table.table-bordered.colored{
+    border-collapse: collapse;
+
+    thead {
+        tr th {
+            border: 1px solid $first-dark;
+            border-bottom: 2px solid $first-dark;
+            text-align: center;
+            background-color: $first;
+            color: $white;
+        }
+    }
+    
+    td {
+        border: 1px solid $border-color;
+        background-color: $white;
+    }
+
+}
+
+hr {
+    background-color: $secondary;
+    outline: none;
+    height: 1px;
+    border: none;
+    width: 100%;
+    margin: 5px auto 10px;
+}
