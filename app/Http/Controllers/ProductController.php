@@ -160,13 +160,13 @@ class ProductController extends Controller
     }
 
     public function getProductImage($fileName, $color = '000000', $extraPicture = '') {
-        $coloredImage = Image::make(Storage::disk('public')->path($fileName));
+        $coloredImage = Image::make(Storage::disk('public')->path('product_images/' . $fileName));
         
         if ($color !== '000000') {
             $coloredImage->colorize(intval(hexdec(substr($color, 0, 2)) / 255 * 100), intval(hexdec(substr($color, 2, 2)) / 255 * 100), intval(hexdec(substr($color, 4, 2)) / 255 * 100));
         }
         
-        $coloredImage->insert(Storage::disk('public')->path('watermark.png'));
+        $coloredImage->insert(Storage::disk('public')->path('extra_images/watermark.png'));
         
         if ($extraPicture) {
             $coloredImage->insert(Storage::disk('public')->path('extra_images/' . $extraPicture));
@@ -175,17 +175,32 @@ class ProductController extends Controller
         return $coloredImage->response('png');
     }
 
-    public function uploadProductImage(Request $request) {
+    public function uploadProductImages(Request $request) {
         if (!$request->has('images')) {
             return;
         }
 
-        $images = $request->images;
-        foreach ($images as $image) {
-            Storage::disk('public')->delete($image->getClientOriginalName());
-
-            $image->move(storage_path('/app/public'), $image->getClientOriginalName());
+        // get last image id
+        $imageFiles = Storage::disk('public')->files('product_images/');
+        $lastImageId = -1;
+        for ($i = 0; $i < count($imageFiles); $i++) {
+            $imageFiles[$i] = str_replace('product_images/', '', $imageFiles[$i]);
+            $imageFiles[$i] = intval(explode('_', $imageFiles[$i])[0]);
+            if ($imageFiles[$i] > $lastImageId) {
+                $lastImageId = $imageFiles[$i];
+            }
         }
+
+
+        $images = $request->images;
+        $finalImageNames = [];
+        foreach ($images as $image) {
+            $lastImageId ++;
+            $image->move(storage_path('/app/public/product_images'), $lastImageId . '_' . $image->getClientOriginalName());
+            array_push($finalImageNames, $lastImageId . '_' . $image->getClientOriginalName());
+        }
+
+        return json_encode($finalImageNames);
     }
 
 }

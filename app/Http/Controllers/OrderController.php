@@ -24,6 +24,10 @@ class OrderController extends Controller
     }
 
     public function orderShipping() {
+        if (!session()->has('cart')) {
+            return redirect('cart');
+        }
+
         if (session()->has('order-customer-data')) {
             $orderCustomerData = json_decode(session('order-customer-data'));
 

@@ -54,6 +54,6 @@ Route::name('admin')->middleware(['auth', 'can:admin'])->group(function () {
     Route::get('/admin/create-product', 'AdminController@createProduct')->name('create-product');
     Route::get('/admin/edit-product/{id}', 'AdminController@editProduct')->name('edit-product');
     Route::post('/admin/modify-product', 'AdminController@modifyProduct')->name('modify-product');
-    Route::post('/admin/upload-product-images', 'ProductController@uploadProductImage')->name('upload-product-image');
+    Route::post('/admin/upload-product-images', 'ProductController@uploadProductImages')->name('upload-product-image');
     Route::get('/admin/copy-product/{id}', 'AdminController@copyProduct')->name('copy-product');
 });

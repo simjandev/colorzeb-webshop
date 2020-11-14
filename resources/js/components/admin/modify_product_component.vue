@@ -406,11 +406,8 @@
 
                 axios.post('/admin/upload-product-images', fd).then(res => {
                     this.imageFilesLabel = 'Kép kiválasztása';
-
-                    for (var i = 0; i < this.selectedUploadImages.length; i++) {
-                        this.imageNames.push(this.selectedUploadImages[i].name);
-                    }
-
+                    this.imageNames = this.imageNames.concat(JSON.parse(res.request.responseText));
+                    console.log(this.imageNames);
                     this.selectedUploadImages = [];
                 });
                 
