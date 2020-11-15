@@ -49,7 +49,7 @@
                 </tr>
                 <tr>
                     <td class="alignment-column"></td>
-                    <td class="cart-sum-name">Bruttó végösszeg:</td>
+                    <td class="cart-sum-name">Fizetendő:</td>
                     <td class="cart-sum-value">{{ sumPriceAfterVat }} Ft</td>
                 </tr>
             </tbody>

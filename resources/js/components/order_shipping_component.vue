@@ -15,7 +15,7 @@
                 <label for="company" class="col-md-3 col-form-label text-md-right">Magánszemély/cég:</label>
                 <div class="col-md-9">
                     <select id="company" type="company" class="form-control blue" v-model="company" v-on:change="companyChanged" required>
-                        <option value="">Kérjük válassz</option>
+                        <option value="">Kérjük válasszon</option>
                         <option value="person">Magánszemély</option>
                         <option value="company">Cég</option>
                     </select>
@@ -101,7 +101,6 @@
                     <button id="confirm-button" class="button blue">Tovább</button>
                 </div>
             </div>
-
         </form>
     </div>
 </template>
@@ -194,14 +193,17 @@
                 }
             },
             billingSameAsShippingChanged: function() {
-                if (!this.sameAsShipping) {
-                    return;
+                if (this.sameAsShipping) {
+                    this.billingName = this.shippingName;
+                    this.billingZip = this.shippingZip;
+                    this.billingCity = this.shippingCity;
+                    this.billingAddress = this.shippingAddress;
+                } else {
+                    this.billingName = '';
+                    this.billingZip = '';
+                    this.billingCity = '';
+                    this.billingAddress = '';
                 }
-
-                this.billingName = this.shippingName;
-                this.billingZip = this.shippingZip;
-                this.billingCity = this.shippingCity;
-                this.billingAddress = this.shippingAddress;
             },
             confirmShippingData: function() {
                 var data = {};

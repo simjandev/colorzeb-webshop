@@ -17,8 +17,17 @@
             </tr>
         </thead>
         <tbody>
+            @php
+                $sumPriceAfterTax = 0;
+                $shippingPrice = 0;
+            @endphp
             @foreach ($cart as $cartItem)
                 @php
+                    $sumPriceAfterTax += $cartItem->price * $cartItem->quantity;
+                    if ($cartItem->shippingPrice > $shippingPrice) {
+                        $shippingPrice = $cartItem->shippingPrice;
+                    }
+
                     if ($cartItem->parameters[2] == '') {
                         unset($cartItem->parameters[2]);
                     }
@@ -111,6 +120,11 @@
         </tbody>
     </table>
 
+    @php
+        $sumPriceAfterTax += $shippingPrice;
+        $vat = round($sumPriceAfterTax - $sumPriceAfterTax / 1.27);
+        $priceBeforeTax = $sumPriceAfterTax - $vat;
+    @endphp
     <table id="order-confirm-sum" class="table table-bordered table-sm col-lg-8 offset-lg-2">
         <thead>
             <tr>
@@ -123,23 +137,28 @@
             <tr>
                 <td class="alignment-column"></td>
                 <td>Szállítás:</td>
-                <td></td>
+                <td>{{ $shippingPrice }} Ft</td>
             </tr>
             <tr>
                 <td class="alignment-column"></td>
                 <td>Nettó végösszeg:</td>
-                <td></td>
+                <td>{{ $priceBeforeTax }}</td>
             </tr>
             <tr>
                 <td class="alignment-column"></td>
                 <td>Áfa (27%):</td>
-                <td></td>
+                <td>{{ $vat }}</td>
             </tr>
             <tr>
                 <td class="alignment-column"></td>
-                <td>Bruttó végösszeg:</td>
-                <td></td>
+                <td>Fizetendő:</td>
+                <td>{{ $sumPriceAfterTax }} Ft</td>
             </tr>
         </tbody>
     </table>
+    <div id="order-confirm-button-box" clasS="col-lg-8 offset-lg-2 text-right">
+        <a href="/create-order">
+            <button class="button blue">Megrendelés</button>
+        </a>
+    </div>
 @endsection

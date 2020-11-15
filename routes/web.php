@@ -23,6 +23,7 @@ Route::post('/order-auth', 'Auth\LoginController@orderLogin')->name('order-auth'
 Route::get('/order-shipping', 'OrderController@orderShipping')->name('order-shipping');
 Route::post('/order-customer-data', 'OrderController@orderCustomerData')->name('order-customer-data');
 Route::get('/order-confirm', 'OrderController@orderConfirm')->name('order-confirm');
+Route::get('/create-order', 'OrderController@createOrder')->name('create-order');
 
 Route::get('/dev', 'HomeController@dev')->name('dev');
 Route::get('/product-image/{fileName}/{color?}/{extraPicture?}', 'ProductController@getProductImage')->name('product-image');
