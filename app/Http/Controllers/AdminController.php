@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Order;
+use App\OrderProduct;
 use App\CustomProductParameter;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,8 +16,21 @@ class AdminController extends Controller
     }
 
     public function orders() {
+        $orders = Order::all();
+
         return view('admin/orders', [
             'active' => 'Megrendelések',
+            'orders' => $orders,
+        ]);
+    }
+
+    public function orderDetails($id) {
+        $order = Order::where('id', $id)->first();
+        $products = OrderProduct::where('order_id', $id)->get();
+        return view('admin/order_details', [
+            'active' => 'Megrendelés részletek',
+            'order' => $order,
+            'products' => $products,
         ]);
     }
 

@@ -42,7 +42,9 @@ Route::post('/remove-cart-item', 'CartController@removeCartItem')->name('remove-
 
 // admin
 Route::name('admin')->middleware(['auth', 'can:admin'])->group(function () {
+    // orders
     Route::get('/admin/orders', 'AdminController@orders')->name('orders');
+    Route::get('/admin/order/{id}', 'AdminController@orderDetails')->name('orders');
     
     // categories
     Route::get('/admin/categories', 'AdminController@categories')->name('categories');

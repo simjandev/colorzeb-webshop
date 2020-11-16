@@ -39,10 +39,15 @@
                     if ($cartItem->parameters[0] == '') {
                         unset($cartItem->parameters[0]);
                     }
+                    
+                    $parameterText = ' (' . implode(', ', $cartItem->parameters) . ')';
+                    if ($parameterText == ' ()') {
+                        $parameterText = '';
+                    }
                 @endphp
                 <tr>
                     <td><img src="{{ $cartItem->image }}" class="order-confirm-item-image"></td>
-                    <td>{{ $cartItem->productName . ' (' . implode(', ', $cartItem->parameters) . ')' }}</td>
+                    <td>{{ $cartItem->productName . $parameterText }}</td>
                     <td>{{ $cartItem->quantity }}</td>
                     <td>{{ $cartItem->price }} Ft</td>
                     <td>{{ $cartItem->price * $cartItem->quantity }} Ft</td>

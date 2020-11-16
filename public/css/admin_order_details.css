@@ -1,0 +1,82 @@
+#back-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#order-items .order-item-image {
+  width: 50px;
+  height: 50px;
+}
+
+#order-items tr,
+#order-items td {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+#order-items tr:first-of-type,
+#order-items th {
+  height: 25px;
+  line-height: 25px;
+}
+
+#order-items td:nth-child(1) {
+  width: 50px;
+}
+
+#order-items td:nth-child(3),
+#order-items td:nth-child(4),
+#order-items td:nth-child(5) {
+  width: 100px;
+}
+
+#order-sum {
+  border: none;
+  text-align: center;
+}
+
+#order-sum .alignment-column {
+  border: none;
+  background-color: #f4f4f4;
+}
+
+#order-sum td:nth-child(2) {
+  width: 200px;
+}
+
+#order-sum td:nth-child(3) {
+  width: 100px;
+}
+
+#order-customer-data,
+#order-customer-shipping-data,
+#order-customer-billing-data {
+  border: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#order-customer-data .alignment-column,
+#order-customer-shipping-data .alignment-column,
+#order-customer-billing-data .alignment-column {
+  border: none;
+  background-color: #f4f4f4;
+}
+
+#order-customer-data td:nth-child(1),
+#order-customer-shipping-data td:nth-child(1),
+#order-customer-billing-data td:nth-child(1) {
+  width: 300px;
+}
+
+#order-customer-data td:nth-child(2),
+#order-customer-shipping-data td:nth-child(2),
+#order-customer-billing-data td:nth-child(2) {
+  width: 400px;
+}
+
+#order-button-box {
+  padding: 0px;
+}
+

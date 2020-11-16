@@ -143,7 +143,9 @@
                     this.cartItems[i].parameters.splice(0, 1);
                 }
 
-                this.cartItems[i].name += ' (' + this.cartItems[i].parameters.join(', ') + ')';
+                if (this.cartItems[i].length) {
+                    this.cartItems[i].name += ' (' + this.cartItems[i].parameters.join(', ') + ')';
+                }
             }
 
             this.calculateSumPrices();

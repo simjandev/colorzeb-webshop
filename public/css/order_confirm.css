@@ -44,6 +44,17 @@
   width: 100px;
 }
 
+#order-confirm-sum tr:last-child td:nth-child(2),
+#order-confirm-sum tr:last-child td:nth-child(3) {
+  background-color: #50bd4e;
+  color: white;
+  font-size: 17px;
+}
+
+#order-confirm-sum tr:last-child td:nth-child(2) {
+  border-right: 1px solid white;
+}
+
 #order-customer-data,
 #order-customer-shipping-data,
 #order-customer-billing-data {

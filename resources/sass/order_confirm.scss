@@ -42,6 +42,17 @@
     td:nth-child(3) {
         width: 100px;
     }
+
+    tr:last-child td:nth-child(2),
+    tr:last-child td:nth-child(3) {
+        background-color: $green;
+        color: $white;
+        font-size: 17px;
+    }
+
+    tr:last-child td:nth-child(2) {
+        border-right: 1px solid $white;
+    }
 }
 
 #order-customer-data,

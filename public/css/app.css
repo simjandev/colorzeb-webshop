@@ -14329,6 +14329,21 @@ body {
   line-height: 35px;
 }
 
+#cart-sum tr:last-child td:nth-child(2),
+#cart-sum tr:last-child td:nth-child(3) {
+  background-color: #50bd4e;
+  color: white;
+  font-size: 17px;
+}
+
+#cart-sum tr:last-child td:nth-child(2) {
+  border-right: 1px solid white;
+}
+
+#cart-sum th {
+  font-weight: bold;
+}
+
 #cart-sum .alignment-column {
   border-color: transparent;
   border-right-color: #b4b4b4 !important;
@@ -14342,7 +14357,6 @@ body {
   width: 180px;
   height: 35px;
   line-height: 35px;
-  font-weight: bold;
   font-size: 15px;
   text-align: right;
 }
