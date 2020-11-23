@@ -30,6 +30,7 @@ Vue.component('order-shipping-component', require('./components/order_shipping_c
 
 Vue.component('modify-product-component', require('./components/admin/modify_product_component.vue').default);
 Vue.component('modify-categories-component', require('./components/admin/modify_categories_component.vue').default);
+Vue.component('modify-order-component', require('./components/admin/modify_order_component.vue').default);
 Vue.component('admin-sidebar-component', require('./components/admin/admin_sidebar_component.vue').default);
 
 /**

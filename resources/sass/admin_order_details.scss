@@ -2,7 +2,14 @@
 
 #back-button {
     margin-top: 10px;
-    margin-bottom: 10px;
+}
+
+h5 {
+    margin-top: 20px;
+}
+
+hr {
+    margin-bottom: 20px;
 }
 
 #order-items {
@@ -72,4 +79,21 @@
 
 #order-button-box {
     padding: 0px;
+}
+
+#order-status-box {
+    min-height: 50px;
+}
+
+#order-status, #order-status-email {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 150px);
+    height: 32px;
+}
+
+#order-status-button, #order-status-email-button {
+    display: inline-block;
+    float: right;
+    width: 120px;
 }

@@ -12,6 +12,10 @@
                 <i class="add-to-cart-button fa fa-arrow-left"></i> Vissza
             </button>
         </a>
+
+        <h5>Rendelés részletei</h5>
+        <hr>
+        
         <table id="order-items" class="table table-bordered table-sm col-sm-12">
             <thead>
                 <tr>
@@ -122,12 +126,7 @@
                 </tr>
             </tbody>
         </table>
-
-        @php
-            $sumPriceAfterTax = $order->price + $order->shipping_price;
-            $vat = round($sumPriceAfterTax - $sumPriceAfterTax / 1.27);
-            $priceBeforeTax = $sumPriceAfterTax - $vat;
-        @endphp
+        
         <table id="order-sum" class="table table-bordered table-sm col-sm-12">
             <thead>
                 <tr>
@@ -144,20 +143,15 @@
                 </tr>
                 <tr>
                     <td class="alignment-column"></td>
-                    <td>Nettó végösszeg:</td>
-                    <td>{{ $priceBeforeTax }}</td>
-                </tr>
-                <tr>
-                    <td class="alignment-column"></td>
-                    <td>Áfa (27%):</td>
-                    <td>{{ $vat }}</td>
-                </tr>
-                <tr>
-                    <td class="alignment-column"></td>
-                    <td>Fizetendő:</td>
-                    <td>{{ $sumPriceAfterTax }} Ft</td>
+                    <td>Termékek ára:</td>
+                    <td>{{ $order->price }} Ft</td>
                 </tr>
             </tbody>
         </table>
+        <modify-order-component 
+            :_id="{{ $order->id }}"
+            _status="{{ $order->status }}"
+        ></modify-order-component>
     </div>
+</div>
 @endsection

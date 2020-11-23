@@ -34,6 +34,13 @@ class AdminController extends Controller
         ]);
     }
 
+    public function modifyOrderStatus(Request $request) {
+        $data = $request->all();
+        Order::where('id', $data['id'])->update(['status' => $data['status']]);
+        
+        return 'success';
+    }
+
     public function categories() {
         $categories = Category::all();
 

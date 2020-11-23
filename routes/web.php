@@ -43,8 +43,9 @@ Route::post('/remove-cart-item', 'CartController@removeCartItem')->name('remove-
 // admin
 Route::name('admin')->middleware(['auth', 'can:admin'])->group(function () {
     // orders
-    Route::get('/admin/orders', 'AdminController@orders')->name('orders');
-    Route::get('/admin/order/{id}', 'AdminController@orderDetails')->name('orders');
+    Route::get('/admin/orders', 'AdminController@orders')->name('admin-orders');
+    Route::get('/admin/order/{id}', 'AdminController@orderDetails')->name('adminorder');
+    Route::post('/admin/modify-order-status', 'AdminController@modifyOrderStatus')->name('modify-order-status');
     
     // categories
     Route::get('/admin/categories', 'AdminController@categories')->name('categories');
