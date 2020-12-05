@@ -49,3 +49,24 @@
         height: 34px;
     }
 }
+
+#pagination-box {
+    padding: 0px !important;
+}
+
+#admin-products-nav{
+    display: inline-block !important;
+    float: left;
+    width: calc(100% - 100px);
+    nav {
+        margin: 0px !important;
+    }
+}
+
+#create-product-button {
+    display: inline-block;
+    float: left;
+    width: 100px;
+    margin-top: 3px;
+    margin-bottom: 20px;
+}

@@ -101,6 +101,7 @@
             <table class="table table-bordered" id="parameter-settings">
                 <thead>
                     <tr>
+                        <th class="c-image">Kép</th>
                         <th class="c-param1" v-if="customParameters[0].type == 'select'">{{ customParameters[0].name }}</th>
                         <th class="c-param2" v-if="customParameters[1].type == 'select'">{{ customParameters[1].name }}</th>
                         <th class="c-param3" v-if="customParameters[2].type == 'select'">{{ customParameters[2].name }}</th>
@@ -112,6 +113,9 @@
                 </thead>
                 <transition-group name="disappear" tag="tbody">
                     <tr v-for="parameterSetting in parameterSettings" :key="parameterSetting.id">
+                        <td class="c-image">
+                            <img :src="'/product-image/' + parameterSetting.image.name + '/' + parameterSetting.image.color + '/' + parameterSetting.image.extraImage.file" alt="" v-if="parameterSetting.image">
+                        </td>
                         <td class="c-param1" v-if="customParameters[0].type == 'select'">
                             <select class="form-control blue" v-model="parameterSetting.param1">
                                 <option value="" v-if="parameterSettingIndex">Bármelyik</option>

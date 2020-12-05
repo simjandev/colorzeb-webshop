@@ -6,12 +6,15 @@
 
 @section('content')
     @include('admin.side_panel')
-    <div class="col-lg-8 offset-lg-1">
-        <div class="col-sm-2 offset-sm-10">
-            <a href="/admin/create-product" class="col-sm-12">
-                <button class="button blue col-sm-12">Új termék</button>
-            </a>
-        </div><br>
+    <div class="row col-lg-8 offset-lg-1">
+        @php
+            $links = str_replace('?page=', '/', $products->links());
+        @endphp
+        <div id="pagination-box" class="col-sm-12">
+            <div id="admin-products-nav">{!! $links !!}</div>
+            <button id="create-product-button" class="button blue">Új termék</button>
+        </div>
+
         <table id="products" class="table table-bordered table-sm col-sm-12">
             <thead>
                 <tr>

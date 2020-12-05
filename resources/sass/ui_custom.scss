@@ -382,3 +382,16 @@ li.page-item {
         border: 1px solid #dee2e6;
     }
 }
+
+nav:not(#navbar) {
+    height: 38px;
+    margin: auto;
+
+    &:first-of-type {
+        margin-bottom: 30px;
+    }
+
+    &:last-of-type {
+        margin-top: 30px;
+    }
+}

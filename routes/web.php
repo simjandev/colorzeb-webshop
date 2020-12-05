@@ -60,7 +60,7 @@ Route::name('admin')->middleware(['auth', 'can:admin'])->group(function () {
     Route::post('/admin/create-category', 'AdminController@createCategory')->name('create-category');
 
     // products
-    Route::get('/admin/products', 'AdminController@products')->name('admin-products');
+    Route::get('/admin/products/{page?}', 'AdminController@products')->name('admin-products');
     Route::get('/admin/create-product', 'AdminController@createProduct')->name('create-product');
     Route::get('/admin/edit-product/{id}', 'AdminController@editProduct')->name('edit-product');
     Route::post('/admin/modify-product', 'AdminController@modifyProduct')->name('modify-product');

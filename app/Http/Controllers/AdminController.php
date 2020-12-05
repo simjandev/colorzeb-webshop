@@ -27,7 +27,6 @@ class AdminController extends Controller
 
         $paginatorUrl = implode('/', $paginatorUrl);
 
-        $orders = Order::all();
         $orders = Order::select('*')->paginate($pageSize, ['orders.id'], 'page', $page)->withPath($paginatorUrl);
         return view('admin/orders', [
             'active' => 'Megrendelések',
@@ -89,9 +88,18 @@ class AdminController extends Controller
         Product::where('category_id', $request->input('categoryId'))->update(['category_name' => $request->input('categoryNewName')]);
     }
 
-    public function products() {
-        $products = Product::all();
+    public function products(Request $request, $page = '') {
+        // set url for paginator
+        $pageSize = 15;
+        $paginatorUrl = explode('/', $request->url());
+        if ($page == '') {
+            $page = 1;
+        } else {
+            unset($paginatorUrl[count($paginatorUrl) - 1]);
+        }
 
+        $paginatorUrl = implode('/', $paginatorUrl);
+        $products = Product::select('*')->paginate($pageSize, ['products.id'], 'page', $page)->withPath($paginatorUrl);
         return view('admin/products', [
             'active' => 'Termékek',
             'products' => $products,

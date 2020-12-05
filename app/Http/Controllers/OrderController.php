@@ -123,67 +123,65 @@ class OrderController extends Controller
         $orderCustomerData = json_decode(session('order-customer-data'));
         $cart = json_decode(session('cart'));
 
-        for ($i = 0; $i < 400; $i++) {
-            // calculate price and shipping price
-            $sumPrice = 0;
-            $shippingPrice = 0;
-            foreach ($cart as $cartItem) {
-                $sumPrice += $cartItem->price * $cartItem->quantity;
-                if ($cartItem->shippingPrice > $shippingPrice) {
-                    $shippingPrice = $cartItem->shippingPrice;
-                }
+        // calculate price and shipping price
+        $sumPrice = 0;
+        $shippingPrice = 0;
+        foreach ($cart as $cartItem) {
+            $sumPrice += $cartItem->price * $cartItem->quantity;
+            if ($cartItem->shippingPrice > $shippingPrice) {
+                $shippingPrice = $cartItem->shippingPrice;
             }
+        }
 
-            // create order
-            $order = new Order();
-            $order->user_id = Auth::check() ? Auth::user()->id : null;
-            $order->email = $orderCustomerData->email;
-            $order->user_comment = is_null($orderCustomerData->comment) ? '' : $orderCustomerData->comment;
-            $order->admin_comment = '';
-            $order->billing_name = $orderCustomerData->billingName;
-            $order->billing_tax_number = is_null($orderCustomerData->billingTaxNumber) ? '' : $orderCustomerData->billingTaxNumber;
-            $order->billing_zip_code = $orderCustomerData->billingZip;
-            $order->billing_city = $orderCustomerData->billingCity;
-            $order->billing_address = $orderCustomerData->billingAddress;
-            $order->shipping_name = $orderCustomerData->shippingName;
-            $order->shipping_phone = $orderCustomerData->shippingPhone;
-            $order->shipping_zip_code = $orderCustomerData->shippingZip;
-            $order->shipping_city = $orderCustomerData->shippingCity;
-            $order->shipping_address = $orderCustomerData->shippingAddress;
-            $order->price = $sumPrice;
-            $order->shipping_price = $shippingPrice;
-            $order->payed = false;
-            $order->status = 'Feldolgozásra vár';
-            $order->save();
-            
-            // create order items
-            foreach ($cart as $cartItem) {
-                $orderProduct = new OrderProduct();
-                $orderProduct->order_id = $order->id;
-                $orderProduct->product_id = $cartItem->productId;
-                $orderProduct->name = $cartItem->productName;
-                $orderProduct->price = $cartItem->price;
-                $orderProduct->quantity = $cartItem->quantity;
-                $orderProduct->image = $cartItem->image;
-                $orderProduct->parameters = json_encode($cartItem->parameters);
-                $orderProduct->save();
-            }
+        // create order
+        $order = new Order();
+        $order->user_id = Auth::check() ? Auth::user()->id : null;
+        $order->email = $orderCustomerData->email;
+        $order->user_comment = is_null($orderCustomerData->comment) ? '' : $orderCustomerData->comment;
+        $order->admin_comment = '';
+        $order->billing_name = $orderCustomerData->billingName;
+        $order->billing_tax_number = is_null($orderCustomerData->billingTaxNumber) ? '' : $orderCustomerData->billingTaxNumber;
+        $order->billing_zip_code = $orderCustomerData->billingZip;
+        $order->billing_city = $orderCustomerData->billingCity;
+        $order->billing_address = $orderCustomerData->billingAddress;
+        $order->shipping_name = $orderCustomerData->shippingName;
+        $order->shipping_phone = $orderCustomerData->shippingPhone;
+        $order->shipping_zip_code = $orderCustomerData->shippingZip;
+        $order->shipping_city = $orderCustomerData->shippingCity;
+        $order->shipping_address = $orderCustomerData->shippingAddress;
+        $order->price = $sumPrice;
+        $order->shipping_price = $shippingPrice;
+        $order->payed = false;
+        $order->status = 'Feldolgozásra vár';
+        $order->save();
+        
+        // create order items
+        foreach ($cart as $cartItem) {
+            $orderProduct = new OrderProduct();
+            $orderProduct->order_id = $order->id;
+            $orderProduct->product_id = $cartItem->productId;
+            $orderProduct->name = $cartItem->productName;
+            $orderProduct->price = $cartItem->price;
+            $orderProduct->quantity = $cartItem->quantity;
+            $orderProduct->image = $cartItem->image;
+            $orderProduct->parameters = json_encode($cartItem->parameters);
+            $orderProduct->save();
+        }
 
-            // save order customer data for user
-            if (Auth::check()) {
-                $user = Auth::user();
-                $user->billing_name = $orderCustomerData->billingName;
-                $user->billing_tax_number = is_null($orderCustomerData->billingTaxNumber) ? '' : $orderCustomerData->billingTaxNumber;
-                $user->billing_zip_code = $orderCustomerData->billingZip;
-                $user->billing_city = $orderCustomerData->billingCity;
-                $user->billing_address = $orderCustomerData->billingAddress;
-                $user->shipping_name = $orderCustomerData->shippingName;
-                $user->shipping_phone = $orderCustomerData->shippingPhone;
-                $user->shipping_zip_code = $orderCustomerData->shippingZip;
-                $user->shipping_city = $orderCustomerData->shippingCity;
-                $user->shipping_address = $orderCustomerData->shippingAddress;
-                $user->save();
-            }
+        // save order customer data for user
+        if (Auth::check()) {
+            $user = Auth::user();
+            $user->billing_name = $orderCustomerData->billingName;
+            $user->billing_tax_number = is_null($orderCustomerData->billingTaxNumber) ? '' : $orderCustomerData->billingTaxNumber;
+            $user->billing_zip_code = $orderCustomerData->billingZip;
+            $user->billing_city = $orderCustomerData->billingCity;
+            $user->billing_address = $orderCustomerData->billingAddress;
+            $user->shipping_name = $orderCustomerData->shippingName;
+            $user->shipping_phone = $orderCustomerData->shippingPhone;
+            $user->shipping_zip_code = $orderCustomerData->shippingZip;
+            $user->shipping_city = $orderCustomerData->shippingCity;
+            $user->shipping_address = $orderCustomerData->shippingAddress;
+            $user->save();
         }
 
         // forget cart and order customer data

@@ -119,6 +119,11 @@ html, body{
         padding-left: 9px;
         color: $secondary-dark;
     }
+
+    &:active, &:focus {
+        color: $secondary-dark;
+        background-color: $white !important;
+    }
 }
 
 #search-input {
