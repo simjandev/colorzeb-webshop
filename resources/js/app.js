@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+Vue.component('nav-product-search-component', require('./components/nav_product_search_component.vue').default);
 Vue.component('navbar-cart-component', require('./components/navbar_cart_component.vue').default);
 Vue.component('add-to-cart-button-component', require('./components/add_to_cart_button_component.vue').default);
 Vue.component('product-details-component', require('./components/product_details_component.vue').default);

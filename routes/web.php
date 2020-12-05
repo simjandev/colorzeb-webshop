@@ -31,7 +31,7 @@ Route::get('/dev', 'HomeController@dev')->name('dev');
 
 // product
 Route::get('/product-image/{fileName}/{color?}/{extraPicture?}', 'ProductController@getProductImage')->name('product-image');
-Route::get('/products/{page?}', 'ProductController@searchProductsIndex')->name('search-products-index');
+Route::get('/products/{searchText?}', 'ProductController@searchProductsIndex')->name('search-products-index');
 Route::get('/products/{minimumPrice}/{maximumPrice}/{text}/{selectedCategories}/{selectedFilters}/{discountFilter}/{page}/{changed?}', 'ProductController@searchProducts')->name('search-products');
 Route::get('/product/{id}', 'ProductController@displayProductDetails')->name('display-product-details');
 

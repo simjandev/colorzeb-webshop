@@ -77,11 +77,7 @@
                                     <a class="nav-link" href="/">Kapcsolat</a>
                                 </li>
 
-                                <li class="nav-item search">
-                                    <button id="search-button" class="button blue"><i class="fa fa-search"></i></button>
-                                    <input id="search-input" class="form-control" type="text" placeholder="keresés">
-                                </li>
-
+                                <nav-product-search-component></nav-product-search-component>
                             @endif
                         @endauth
 
@@ -102,10 +98,7 @@
                                 <a class="nav-link" href="/">Kapcsolat</a>
                             </li>
 
-                            <li class="nav-item search">
-                                <button id="search-button" class="button blue"><i class="fa fa-search"></i></button>
-                                <input id="search-input" class="form-control" type="text" placeholder="keresés">
-                            </li>
+                            <nav-product-search-component></nav-product-search-component>
                         @endguest 
                     </ul>
 

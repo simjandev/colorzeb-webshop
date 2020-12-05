@@ -112,7 +112,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function searchProductsIndex(Request $request)
+    public function searchProductsIndex(Request $request, $searchText = '*')
     {
         // redirect ugly url pagination
         if (!Product::select('price')->orderBy('price', 'asc')->count()) {
@@ -130,14 +130,13 @@ class ProductController extends Controller
                 $maximumPriceLimit += 100;
             }
         }
-        
-        $text = urlencode('*');
+
         $categories = urlencode(json_encode([]));
         $filters = urlencode(json_encode([]));
         $page = 1;
 
 
-        $url = '/products/' . $minimumPriceLimit . '/' . $maximumPriceLimit . '/' . $text . '/' . $categories . '/' .
+        $url = '/products/' . $minimumPriceLimit . '/' . $maximumPriceLimit . '/' . $searchText . '/' . $categories . '/' .
         $filters . '/0/' . $page;
 
         return redirect($url);
