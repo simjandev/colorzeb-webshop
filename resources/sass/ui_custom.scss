@@ -314,3 +314,71 @@ hr {
     width: 100%;
     margin: 5px auto 10px;
 }
+
+
+.button.menu-button {
+    box-sizing: border-box;
+    display: inline-block;
+    float: left;
+    width: 150px;
+    margin: 0px;
+    margin-top: 5px;
+    box-shadow: 0px;
+    border-radius: 0px;
+    border: 0px;
+    background-color: rgb(225, 225, 225);
+    color: $font-color-light;
+
+    &.active, &:active, &:focus {
+        box-shadow: none !important;
+        background-color: $secondary !important;
+        color: $white !important;
+    }
+
+    &:hover {
+        color: $white;
+    }
+}
+
+li.page-item {
+    a.page-link, span.page-link {
+        color: $font-color-light;
+    }
+
+    &.hidden {
+        display: none;
+    }
+
+    &.active, &:first-of-type, &:last-of-type {
+        a.page-link, span.page-link {
+            background-color: $secondary;
+            border-color: $secondary;
+            color: $white;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        &:hover a.page-link{
+            
+        }
+
+        &.previous a.page-link {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        &.next a.page-link {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    }
+
+    &.disabled,
+    &.disabled {
+        cursor: not-allowed;
+    }
+
+    &.active>a.page-link{
+        border: 1px solid #dee2e6;
+    }
+}

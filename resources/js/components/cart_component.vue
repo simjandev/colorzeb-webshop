@@ -143,7 +143,7 @@
                     this.cartItems[i].parameters.splice(0, 1);
                 }
 
-                if (this.cartItems[i].length) {
+                if (this.cartItems[i].parameters.length) {
                     this.cartItems[i].name += ' (' + this.cartItems[i].parameters.join(', ') + ')';
                 }
             }

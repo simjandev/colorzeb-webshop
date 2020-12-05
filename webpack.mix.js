@@ -18,6 +18,8 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/search_products.scss', 'public/css')
     .sass('resources/sass/product_details.scss', 'public/css')
     .sass('resources/sass/order_confirm.scss', 'public/css')
+    .sass('resources/sass/user_orders.scss', 'public/css')
+    .sass('resources/sass/user_order_details.scss', 'public/css')
     .sass('resources/sass/admin_orders.scss', 'public/css')
     .sass('resources/sass/admin_order_details.scss', 'public/css')
     .sass('resources/sass/admin_search_products.scss', 'public/css').sourceMaps();

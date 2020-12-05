@@ -28,29 +28,6 @@
         margin-left: 5px;
     }
 
-    button.menu-button {
-        box-sizing: border-box;
-        display: inline-block;
-        float: left;
-        width: 150px;
-        margin: 0px !important;
-        margin-top: 5px !important;
-        box-shadow: 0px !important;
-        border-radius: 0px;
-        border: 0px;
-        background-color: rgb(225, 225, 225);
-        color: $font-color-light;
-
-        &.active, &:active, &:focus {
-            background-color: $secondary !important;
-            color: $white;
-        }
-
-        &:focus, &:active {
-            box-shadow: none !important;
-        }
-    }
-
     #images {
         display: flex;
         flex-wrap: wrap;

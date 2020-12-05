@@ -15,9 +15,20 @@ class AdminController extends Controller
     public function __construct() {
     }
 
-    public function orders() {
-        $orders = Order::all();
+    public function orders(Request $request, $page = '') {
+        // set url for paginator
+        $pageSize = 10;
+        $paginatorUrl = explode('/', $request->url());
+        if ($page == '') {
+            $page = 1;
+        } else {
+            unset($paginatorUrl[count($paginatorUrl) - 1]);
+        }
 
+        $paginatorUrl = implode('/', $paginatorUrl);
+
+        $orders = Order::all();
+        $orders = Order::select('*')->paginate($pageSize, ['orders.id'], 'page', $page)->withPath($paginatorUrl);
         return view('admin/orders', [
             'active' => 'Megrendelések',
             'orders' => $orders,
@@ -34,9 +45,13 @@ class AdminController extends Controller
         ]);
     }
 
-    public function modifyOrderStatus(Request $request) {
+    public function modifyOrder(Request $request) {
         $data = $request->all();
-        Order::where('id', $data['id'])->update(['status' => $data['status']]);
+        Order::where('id', $data['id'])->update([
+            'status' => $data['status'],
+            'admin_comment' => $data['admin_comment'],
+            'payed' => $data['payed'],
+        ]);
         
         return 'success';
     }

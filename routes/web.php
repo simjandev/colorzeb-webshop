@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+// orders
 Route::get('/order-login', 'OrderController@orderLogin')->name('order-login');
 Route::post('/order-auth', 'Auth\LoginController@orderLogin')->name('order-auth');
 Route::get('/order-shipping', 'OrderController@orderShipping')->name('order-shipping');
@@ -25,27 +26,32 @@ Route::post('/order-customer-data', 'OrderController@orderCustomerData')->name('
 Route::get('/order-confirm', 'OrderController@orderConfirm')->name('order-confirm');
 Route::get('/create-order', 'OrderController@createOrder')->name('create-order');
 
+// dev
 Route::get('/dev', 'HomeController@dev')->name('dev');
-Route::get('/product-image/{fileName}/{color?}/{extraPicture?}', 'ProductController@getProductImage')->name('product-image');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// product
+Route::get('/product-image/{fileName}/{color?}/{extraPicture?}', 'ProductController@getProductImage')->name('product-image');
 Route::get('/products/{page?}', 'ProductController@searchProductsIndex')->name('search-products-index');
 Route::get('/products/{minimumPrice}/{maximumPrice}/{text}/{selectedCategories}/{selectedFilters}/{discountFilter}/{page}/{changed?}', 'ProductController@searchProducts')->name('search-products');
 Route::get('/product/{id}', 'ProductController@displayProductDetails')->name('display-product-details');
-Route::get('/cart', 'CartController@displayCart')->name('display-cart');
 
+// user
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user/orders/{page?}', 'HomeController@userOrders')->name('user-orders');
+Route::get('/user/order/{id}', 'HomeController@userOrderDetails')->name('user-order-details');
+
+// cart
+Route::get('/cart', 'CartController@displayCart')->name('display-cart');
 Route::post('/add-to-cart', 'CartController@addToCart')->name('add-to-cart');
 Route::post('/modify-cart-item', 'CartController@modifyCartItem')->name('modify-cart-item');
 Route::post('/remove-cart-item', 'CartController@removeCartItem')->name('remove-cart-item');
 
-
-
 // admin
 Route::name('admin')->middleware(['auth', 'can:admin'])->group(function () {
     // orders
-    Route::get('/admin/orders', 'AdminController@orders')->name('admin-orders');
-    Route::get('/admin/order/{id}', 'AdminController@orderDetails')->name('adminorder');
-    Route::post('/admin/modify-order-status', 'AdminController@modifyOrderStatus')->name('modify-order-status');
+    Route::get('/admin/orders/{page?}', 'AdminController@orders')->name('admin-orders');
+    Route::get('/admin/order/{id}', 'AdminController@orderDetails')->name('admin-order-details');
+    Route::post('/admin/modify-order', 'AdminController@modifyOrder')->name('modify-order');
     
     // categories
     Route::get('/admin/categories', 'AdminController@categories')->name('categories');
@@ -54,7 +60,7 @@ Route::name('admin')->middleware(['auth', 'can:admin'])->group(function () {
     Route::post('/admin/create-category', 'AdminController@createCategory')->name('create-category');
 
     // products
-    Route::get('/admin/products', 'AdminController@products')->name('products');
+    Route::get('/admin/products', 'AdminController@products')->name('admin-products');
     Route::get('/admin/create-product', 'AdminController@createProduct')->name('create-product');
     Route::get('/admin/edit-product/{id}', 'AdminController@editProduct')->name('edit-product');
     Route::post('/admin/modify-product', 'AdminController@modifyProduct')->name('modify-product');

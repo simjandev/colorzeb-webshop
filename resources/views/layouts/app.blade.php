@@ -42,26 +42,71 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Főoldal</a>
-                        </li>
+                        @auth
+                            @if (Auth::user()->hasRight('admin'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/admin/orders"><i class="fa fa-file"></i>&nbsp;Admin</a>
+                                </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/products">Termékek</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">ColorZeb</a>
-                        </li>
+                                <li class="nav-item dropdown">
+                                    <a id="navbar-admin-others" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Egyéb <span class="caret"></span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-admin-others">
+                                    <a class="dropdown-item" href="/products">Termékek</a>    
+                                        <a class="dropdown-item" href="/">Főoldal</a>
+                                        <a class="dropdown-item" href="/">ColorZeb</a>
+                                        <a class="dropdown-item" href="/">Kapcsolat</a>
+                                    </div>
+                                </li>
+                            @else 
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Kapcsolat</a>
-                        </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Főoldal</a>
+                                </li>
 
-                        <li class="nav-item search">
-                            <button id="search-button" class="button blue"><i class="fa fa-search"></i></button>
-                            <input id="search-input" class="form-control" type="text" placeholder="keresés">
-                        </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/products">Termékek</a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">ColorZeb</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Kapcsolat</a>
+                                </li>
+
+                                <li class="nav-item search">
+                                    <button id="search-button" class="button blue"><i class="fa fa-search"></i></button>
+                                    <input id="search-input" class="form-control" type="text" placeholder="keresés">
+                                </li>
+
+                            @endif
+                        @endauth
+
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Főoldal</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/products">Termékek</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">ColorZeb</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Kapcsolat</a>
+                            </li>
+
+                            <li class="nav-item search">
+                                <button id="search-button" class="button blue"><i class="fa fa-search"></i></button>
+                                <input id="search-input" class="form-control" type="text" placeholder="keresés">
+                            </li>
+                        @endguest 
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -89,16 +134,17 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fa fa-user"></i>&nbsp;&nbsp;{{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @auth
-                                        @if (Auth::user()->hasRight('admin'))
-                                        <a class="dropdown-item" href="/admin/orders">
-                                            Admin oldal
+                                        <a class="dropdown-item" href="#">
+                                            Adataim
                                         </a>
-                                        @endif
+                                        <a class="dropdown-item" href="/user/orders">
+                                            Megrendeléseim
+                                        </a>
                                     @endauth
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();

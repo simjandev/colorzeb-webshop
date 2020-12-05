@@ -63,7 +63,6 @@
             _categories: Array,
             _filters: Object,
             _discountFilter: Boolean,
-            _page: Number,
             _minimumPriceLimit: Number,
             _maximumPriceLimit: Number,
             _currentMinimumPrice: Number,
@@ -129,7 +128,6 @@
                 link += '/' + encodeURI(JSON.stringify(data.categories));
                 link += '/' + encodeURI(JSON.stringify(data.filters));
                 link += '/' + (this.discountFilter ? '1' : '0');
-                link += '/' + this.$props._page;
                 link += '/' + 1;
 
                 window.location = link;

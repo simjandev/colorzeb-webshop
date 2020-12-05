@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('head')
-    <link href="{{ asset('css/admin_orders.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/user_orders.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
-    @include('admin.side_panel')
+    @include('user_side_panel')
     <div class="row col-lg-8 offset-lg-1">
         @php
             $links = str_replace('?page=', '/', $orders->links());
@@ -13,11 +13,10 @@
                 echo '<div class="row col-sm-12">' . $links . '</div>';
             }
         @endphp
-        <table id="admin-orders" class="table table-bordered table-sm col-lg-12">
+        <table id="user-orders" class="table table-bordered table-sm col-lg-12">
             <thead>
                 <tr>
                     <th>M. szám</th>
-                    <th>Megrendelő</th>
                     <th>Fizetendő</th>
                     <th>Fizetve</th>
                     <th>Állapot</th>
@@ -29,13 +28,12 @@
                 @foreach ($orders as $order)
                     <tr>
                         <td>{{ $order->id }}</td>
-                        <td>{{ $order->billing_name }}</td>
                         <td>{{ $order->price + $order->shipping_price }} Ft</td>
                         <td>{{ $order->payed ? 'Igen' : 'Nem' }}</td>
                         <td>{{ $order->status }}</td>
                         <td title="{{ explode(' ', $order->created_at)[1] }}">{{ explode(' ', $order->created_at)[0] }}</td>
                         <td>
-                            <a href="/admin/order/{{ $order->id }}">
+                            <a target="_blank" href="/user/order/{{ $order->id }}">
                                 <button class="product-button button blue" title="Megtekintés">
                                     <i class="fa fa-eye"></i>
                                 </button>

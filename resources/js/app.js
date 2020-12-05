@@ -27,6 +27,7 @@ Vue.component('double-slider-component', require('./components/double_slider_com
 Vue.component('order-steps-component', require('./components/order_steps_component.vue').default);
 Vue.component('order-login-component', require('./components/order_login_component.vue').default);
 Vue.component('order-shipping-component', require('./components/order_shipping_component.vue').default);
+Vue.component('user-sidebar-component', require('./components/user_sidebar_component.vue').default);
 
 Vue.component('modify-product-component', require('./components/admin/modify_product_component.vue').default);
 Vue.component('modify-categories-component', require('./components/admin/modify_categories_component.vue').default);

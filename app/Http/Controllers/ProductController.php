@@ -12,15 +12,11 @@ use Intervention\Image\ImageManagerStatic as Image;
 class ProductController extends Controller
 {
 
-    public function searchProducts(Request $request, $minimumPrice, $maximumPrice, $text, $selectedCategories, $selectedFilters, $discountFilter, $page, $changed = false)
+    public function searchProducts(Request $request, $minimumPrice, $maximumPrice, $text, $selectedCategories, $selectedFilters, $discountFilter, $page)
     {
         // set url for paginator
         $paginatorUrl = explode('/', $request->url());
         unset($paginatorUrl[count($paginatorUrl) - 1]);
-        if ($changed) {
-            unset($paginatorUrl[count($paginatorUrl) - 1]);
-            $page = 1;
-        }
 
         $paginatorUrl = implode('/', $paginatorUrl);
         
@@ -85,7 +81,6 @@ class ProductController extends Controller
                 ->whereIn('custom_product_parameters.value', $options);
             });
         }
-        
         
         if (!Product::select('price')->orderBy('price', 'asc')->count()) {
             $minimumPriceLimit = new \StdClass();
