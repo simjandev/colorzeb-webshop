@@ -77,6 +77,10 @@
                     <td>Állapot</td>
                     <td>{{ $order->status }}</td>
                 </tr>
+                <tr>
+                    <td>Időpont</td>
+                    <td>{{ $order->created_at->format('Y.m.d H:i') }}</td>
+                </tr>
             </tbody>
         </table>
 
@@ -98,7 +102,7 @@
                 <tr>
                     <td>Cím</td>
                     <td>
-                        {{ $order->shipping_zip . ' ' . $order->shipping_city . ', ' . $order->shipping_address}}
+                        {{ $order->shipping_zip_code . ' ' . $order->shipping_city . ', ' . $order->shipping_address}}
                     </td>
                 </tr>
             </tbody>
@@ -124,7 +128,7 @@
                 <tr>
                     <td>Cím</td>
                     <td>
-                        {{ $order->billing_zip . ' ' . $order->billing_city . ', ' . $order->billing_address}}
+                        {{ $order->billing_zip_code . ' ' . $order->billing_city . ', ' . $order->billing_address}}
                     </td>
                 </tr>
             </tbody>
