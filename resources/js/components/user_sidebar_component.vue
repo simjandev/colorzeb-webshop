@@ -17,7 +17,7 @@
                 links: [
                     {
                         text: 'Adataim',
-                        location: '#',
+                        location: '/user/data',
                     },
                     {
                         text: 'Megrendeléseim',

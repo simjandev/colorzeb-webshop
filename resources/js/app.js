@@ -29,12 +29,14 @@ Vue.component('order-steps-component', require('./components/order_steps_compone
 Vue.component('order-login-component', require('./components/order_login_component.vue').default);
 Vue.component('order-shipping-component', require('./components/order_shipping_component.vue').default);
 Vue.component('user-sidebar-component', require('./components/user_sidebar_component.vue').default);
+Vue.component('user-data-component', require('./components/user_data_component.vue').default);
 
 Vue.component('modify-product-component', require('./components/admin/modify_product_component.vue').default);
 Vue.component('modify-categories-component', require('./components/admin/modify_categories_component.vue').default);
 Vue.component('modify-order-component', require('./components/admin/modify_order_component.vue').default);
 Vue.component('admin-sidebar-component', require('./components/admin/admin_sidebar_component.vue').default);
 
+Vue.component('snowflake-component', require('./components/snowflake_component.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -39,6 +39,9 @@ Route::get('/product/{id}', 'ProductController@displayProductDetails')->name('di
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/orders/{page?}', 'HomeController@userOrders')->name('user-orders');
 Route::get('/user/order/{id}', 'HomeController@userOrderDetails')->name('user-order-details');
+Route::get('/user/data', 'HomeController@userData')->name('user-data');
+Route::post('/user/data/save', 'HomeController@saveUserData')->name('user-data');
+
 
 // cart
 Route::get('/cart', 'CartController@displayCart')->name('display-cart');

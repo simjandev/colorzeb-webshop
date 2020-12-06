@@ -202,3 +202,24 @@ html, body{
 @import './vue_components/admin_sidebar.scss';
 @import './vue_components/modify_product.scss';
 @import './vue_components/modify_categories.scss';
+
+#snowflake-box {
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    height: 61px;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 11;
+    pointer-events: none;
+}

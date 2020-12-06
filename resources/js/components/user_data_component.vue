@@ -1,34 +1,6 @@
 <template>
-    <div class="col-sm-12 col-lg-8 offset-lg-2">
+    <div class="col-sm-12 col-lg-8 offset-lg-1">
         <form v-on:submit.prevent="confirmShippingData">
-            <h5>Megrendelés adatok</h5>
-            <hr>
-            
-            <div class="form-group row">
-                <label for="email" class="col-md-3 col-form-label text-md-right">E-mail cím:</label>
-                <div class="col-md-9">
-                    <input id="email" type="email" class="form-control blue" v-model="email" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="company" class="col-md-3 col-form-label text-md-right">Magánszemély/cég:</label>
-                <div class="col-md-9">
-                    <select id="company" type="company" class="form-control blue" v-model="company" v-on:change="companyChanged" required>
-                        <option value="">Kérjük válasszon</option>
-                        <option value="person">Magánszemély</option>
-                        <option value="company">Cég</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="form-group row">
-                <label for="comment" class="col-md-3 col-form-label text-md-right">Megjegyzés:</label>
-                <div class="col-md-9">
-                    <textarea id="comment" class="form-control blue" v-model="comment"></textarea>
-                </div>
-            </div>
-            
             <h5>Szállítási adatok</h5>
             <hr>
             
@@ -98,7 +70,7 @@
             </div>
             <div class="form-group row">
                 <div for="billing-address-code" class="offset-md-3">
-                    <button id="confirm-button" class="button blue">Tovább</button>
+                    <button id="confirm-button" class="button blue">mentés</button>
                 </div>
             </div>
         </form>
@@ -109,9 +81,6 @@
     export default {
         data: function() {
             return {
-                email: this.$props._email,
-                comment: '',
-
                 shippingName: this.$props._shippingName,
                 shippingPhone: this.$props._shippingPhone,
                 shippingZip: this.$props._shippingZip,
@@ -122,22 +91,13 @@
                 billingTaxNumber: this.$props._billingTaxNumber,
                 billingZip: this.$props._billingZip,
                 billingCity: this.$props._billingCity,
-                billingAddress: this.$props._billingAddress,
-                
+                billingAddress: this.$props._billingAddress,                
 
                 sameAsShipping: false,
                 company: '',
             };
         },
         props: {
-            _email: {
-                type: String,
-                default: '',
-            },
-            _comment: {
-                type: String,
-                default: '',
-            },
             _shippingName: {
                 type: String,
                 default: '',
@@ -222,9 +182,9 @@
                 data.billingCity = this.billingCity;
                 data.billingAddress = this.billingAddress;
 
-                axios.post('/order-customer-data', data).then(response => {
+                axios.post('/user/data/save', data).then(response => {
                     if (response.request.responseText == 'success') {
-                        window.location = '/order-confirm';
+                        window.location = '/user/data';
                     }
                 });
             }

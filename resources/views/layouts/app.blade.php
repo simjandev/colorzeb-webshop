@@ -25,6 +25,7 @@
 <body>
     <div id="app" class="d-flex flex-column min-vh-100">
         <nav id="navbar" class="navbar navbar-expand-md navbar-light shadow-sm">
+            <snowflake-component></snowflake-component>
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div id="logo-box">
@@ -132,7 +133,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @auth
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="/user/data">
                                             Adataim
                                         </a>
                                         <a class="dropdown-item" href="/user/orders">

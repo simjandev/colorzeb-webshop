@@ -48,10 +48,36 @@ class HomeController extends Controller
 
         return view('user_order_details', [
             'active' => 'Megrendelés részletek',
+            'userName' => Auth::user()->name,
             'order' => $order,
             'products' => $products,
-            'userName' => Auth::user()->name,
         ]);
+    }
+
+    public function userData() {
+        return view('user_data', [
+            'active' => 'Adataim',
+            'userName' => Auth::user()->name,
+            'user' => Auth::user(),
+        ]);   
+    }
+
+    public function saveUserData(Request $request) {
+        $data = $request->all();
+        $user = Auth::user();
+        $user->billing_name = $data['billingName'];
+        $user->billing_tax_number = is_null($data['billingTaxNumber']) ? '' : $data['billingTaxNumber'];
+        $user->billing_zip_code = $data['billingZip'];
+        $user->billing_city = $data['billingCity'];
+        $user->billing_address = $data['billingAddress'];
+        $user->shipping_name = $data['shippingName'];
+        $user->shipping_phone = $data['shippingPhone'];
+        $user->shipping_zip_code = $data['shippingZip'];
+        $user->shipping_city = $data['shippingCity'];
+        $user->shipping_address = $data['shippingAddress'];
+        $user->save();
+
+        return 'success';
     }
 
     public function dev()

@@ -33,7 +33,7 @@
                         <td>{{ $order->status }}</td>
                         <td title="{{ explode(' ', $order->created_at)[1] }}">{{ explode(' ', $order->created_at)[0] }}</td>
                         <td>
-                            <a target="_blank" href="/user/order/{{ $order->id }}">
+                            <a href="/user/order/{{ $order->id }}">
                                 <button class="product-button button blue" title="Megtekintés">
                                     <i class="fa fa-eye"></i>
                                 </button>
