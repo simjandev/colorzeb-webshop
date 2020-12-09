@@ -70,7 +70,7 @@
             </div>
             <div class="form-group row">
                 <div for="billing-address-code" class="offset-md-3">
-                    <button id="confirm-button" class="button blue">mentés</button>
+                    <button id="confirm-button" class="button blue">Mentés</button>
                 </div>
             </div>
         </form>

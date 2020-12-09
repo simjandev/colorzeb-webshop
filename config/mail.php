@@ -88,6 +88,11 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'reply_to' => [
+        'address' => 'zsuzsi@colorzebdesign.hu',
+        'name' => 'Simonyi Zsuzsanna'
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings

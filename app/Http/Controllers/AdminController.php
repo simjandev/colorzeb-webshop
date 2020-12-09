@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\Order;
+use App\OrderStatusEmail;
 use App\OrderProduct;
 use App\CustomProductParameter;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderStatus;
 
 class AdminController extends Controller
 {
@@ -27,7 +30,7 @@ class AdminController extends Controller
 
         $paginatorUrl = implode('/', $paginatorUrl);
 
-        $orders = Order::select('*')->paginate($pageSize, ['orders.id'], 'page', $page)->withPath($paginatorUrl);
+        $orders = Order::select('*')->orderBy('id', 'desc')->paginate($pageSize, ['orders.id'], 'page', $page)->withPath($paginatorUrl);
         return view('admin/orders', [
             'active' => 'Megrendelések',
             'orders' => $orders,
@@ -52,6 +55,23 @@ class AdminController extends Controller
             'payed' => $data['payed'],
         ]);
         
+        return 'success';
+    }
+
+    public function sendOrderStatusEmail(Request $request) {
+        $data = $request->all();
+
+        $order = Order::where('id', $data['orderId'])->first();
+        $orderProducts = OrderProduct::where('order_id', $data['orderId'])->get();
+
+        $emailRecord = new OrderStatusEmail();
+        $emailRecord->order_id = $order->id;
+        $emailRecord->status = $data['status'];
+        $emailRecord->custom_text = $data['customText'];
+        $emailRecord->save();
+
+        Mail::to($data['email'])->send(new OrderStatus(Auth::user(), $order, $orderProducts, $data['status'], $data['customText']));
+
         return 'success';
     }
 
@@ -196,7 +216,7 @@ class AdminController extends Controller
             'active' => 'Termék másolása',
             'categories' => json_encode($categories),
             'id' => '-1',
-            'name' => $product->name . ' (#' . $product->id . ' másolat)',
+            'name' => $product->name . ' (másolat)',
             'description' => $product->description,
             'categoryId' => $product->category_id == NULL ? -1 : $product->category_id,
             'price' => $product->price,

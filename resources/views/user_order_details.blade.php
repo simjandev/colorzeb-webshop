@@ -79,7 +79,7 @@
                 </tr>
                 <tr>
                     <td>Időpont</td>
-                    <td>{{ $order->created_at->format('Y.m.d H:i') }}</td>
+                    <td>{{ $order->created_at->format('Y.m.d. H:i.') }}</td>
                 </tr>
             </tbody>
         </table>

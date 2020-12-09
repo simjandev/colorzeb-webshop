@@ -55,6 +55,7 @@ Route::name('admin')->middleware(['auth', 'can:admin'])->group(function () {
     Route::get('/admin/orders/{page?}', 'AdminController@orders')->name('admin-orders');
     Route::get('/admin/order/{id}', 'AdminController@orderDetails')->name('admin-order-details');
     Route::post('/admin/modify-order', 'AdminController@modifyOrder')->name('modify-order');
+    Route::post('/admin/send-order-status-email', 'AdminController@sendOrderStatusEmail')->name('send-order-status-email');
     
     // categories
     Route::get('/admin/categories', 'AdminController@categories')->name('categories');

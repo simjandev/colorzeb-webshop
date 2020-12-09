@@ -158,9 +158,8 @@
         </div><br>
         
         <div class="col-sm-12" v-if="currentMenu == 'emails'">
-            <textarea class="form-control blue" placeholder="Állapot email egyedi szöveg"></textarea><br>
-            <select id="order-status-email" class="form-control blue">
-                <option value="Feldolgozásra vár">Feldolgozásra vár</option>
+            <textarea id="order-status-email-text" class="form-control blue" placeholder="Állapot email egyedi szöveg" v-model="emailText"></textarea><br>
+            <select id="order-status-email" class="form-control blue" v-model="emailStatus">
                 <option value="Megerősítve">Megerősítve</option>
                 <option value="Elutasítva">Elutasítva</option>
                 <option value="Fizetésre vár">Fizetésre vár</option>
@@ -168,7 +167,7 @@
                 <option value="Teljesítve">Teljesítve</option>
                 <option value="Törölve">Törölve</option>
             </select>
-            <button id="order-status-email-button" class="button blue">Küldés</button>
+            <button id="order-status-email-button" class="button blue" v-on:click="sendOrderStatusEmail">Küldés</button>
         </div>
     </div>
 </template>
@@ -185,6 +184,8 @@
                 orderProducts: this.$props._orderProducts,
                 successText: '',
                 currentMenu: 'details',
+                emailStatus: 'Megerősítve',
+                emailText: '',
             };
         },
         mounted: function() {
@@ -232,6 +233,20 @@
                     setTimeout(() => {
                         this.successText = '';
                     }, 5000);
+                });
+            },
+            sendOrderStatusEmail: function() {
+                var data = {
+                    email: this.order.email,
+                    status: this.emailStatus,
+                    customText: this.emailText,
+                    orderId: this.order.id,
+                };
+                
+                axios.post('/admin/send-order-status-email', data).then(res => {
+                    if (res.request.responseText == 'success') {
+
+                    }
                 });
             }
         },
