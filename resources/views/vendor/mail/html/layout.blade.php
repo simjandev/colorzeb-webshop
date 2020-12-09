@@ -5,21 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://colorzebdesign.hu/css/bootstrap-email.css">
     <style>
-        .table.table-bordered td,
-        .table.table-bordered tr,
-        .table.table-bordered th {
-            border-color: rgb(210, 210, 210);
-        }
-
-        .table.table-bordered th {
-            background-color: rgb(225, 225, 225);
-            text-align: center;
-        }
-
-        .table.table-bordered {
-            border-color: rgb(210, 210, 210);
-            background-color: rgb(252, 252, 252);
-        }
 
         @media only screen and (max-width: 800px) {
             .order-text-box,
