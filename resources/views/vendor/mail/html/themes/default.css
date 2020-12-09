@@ -135,17 +135,21 @@ a:hover {
 .table.table-bordered {
     background-color: rgb(252, 252, 252);
     border: none;
-    border-spacing: 0px;
+    border-collapse: collapse;
 }
 
 .table.table-bordered th,
 .table.table-bordered td {
-    border-color: rgb(210, 210, 210);
+    border: 1px solid rgb(210, 210, 210);
+}
+
+.table.table-bordered th {
+    background-color: rgb(225, 225, 225);
 }
 
 .alignment-column {
-    border: none;
-    background-color: rgb(244, 244, 244);
+    border: none !important;
+    background-color: rgb(244, 244, 244) !important;
 }
 
 #order-products td {
