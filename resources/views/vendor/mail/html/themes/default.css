@@ -140,7 +140,7 @@ a:hover {
 
 .table.table-bordered th,
 .table.table-bordered td {
-    border: 1px solid rgb(210, 210, 210);
+    border-color: rgb(210, 210, 210);
 }
 
 .alignment-column {
