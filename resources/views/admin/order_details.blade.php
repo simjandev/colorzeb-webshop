@@ -9,5 +9,6 @@
     <modify-order-component 
         :_order="{{ $order }}"
         :_order-products="{{ $products }}"
+        :_order-emails="{{ $emails }}"
     ></modify-order-component>
 @endsection

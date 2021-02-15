@@ -17,7 +17,7 @@
 
     #menu-buttons-divider {
         margin-top: 0px;
-        background-color: $border-color;
+        background-color: $first;
         margin-bottom: 35px;
     }
 
@@ -131,15 +131,14 @@
             line-height: 10px;
         }
 
-        tr, td {
+        td {
             box-sizing: border-box;
             height: 40px;
             padding: 0px;
         }
 
-        td {
-            padding-left: 15px;
-            padding-right: 15px;
+        th {
+            height: 30px;
         }
     }
 

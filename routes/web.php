@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Auth::routes();
 // orders
 Route::get('/order-login', 'OrderController@orderLogin')->name('order-login');
@@ -36,7 +32,10 @@ Route::get('/products/{minimumPrice}/{maximumPrice}/{text}/{selectedCategories}/
 Route::get('/product/{id}', 'ProductController@displayProductDetails')->name('display-product-details');
 
 // user
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::post('/send-contact-message', 'HomeController@sendContactMessage')->name('send-contact-message');
 Route::get('/user/orders/{page?}', 'HomeController@userOrders')->name('user-orders');
 Route::get('/user/order/{id}', 'HomeController@userOrderDetails')->name('user-order-details');
 Route::get('/user/data', 'HomeController@userData')->name('user-data');

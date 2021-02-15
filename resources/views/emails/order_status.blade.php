@@ -5,6 +5,10 @@
     @endslot
     <div class="order-text-box">
         <h3>Kedves {{ $user->name }},</h3>
+        @if ($status == 'Feldolgozásra vár')
+            #{{ $order->id }} számú rendelésed rögzítettük!
+        @endif
+
         @if ($status == 'Megerősítve')
             #{{ $order->id }} számú rendelésed megerősítésre került!
         @endif
@@ -34,7 +38,7 @@
         @endif
     </div>
 
-    <table id="order-products" class="table table-sm table-bordered">
+    <table id="order-products" class="table table-bordered table-sm">
         <thead>
             <tr>
                 <th>Kép</th>
@@ -84,6 +88,10 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>Megrendelésszám</td>
+                    <td>#{{ $order->id }}</td>
+                </tr>
+                <tr>
                     <td>E-mail cím</td>
                     <td>{{ $order->email }}</td>
                 </tr>
@@ -94,6 +102,10 @@
                 <tr>
                     <td>Állapot</td>
                     <td>{{ $status }}</td>
+                </tr>
+                <tr>
+                    <td>Fizetve</td>
+                    <td>{{ $order->payed ? 'Igen' : 'Nem' }}</td>
                 </tr>
                 <tr>
                     <td>Időpont</td>
@@ -155,24 +167,20 @@
         <table id="order-sum" class="table table-bordered table-sm">
             <thead>
                 <tr>
-                    <th class="alignment-column"></th>
                     <th>Tétel</th>
                     <th>Összeg</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="alignment-column"></td>
                     <td>Szállítás:</td>
                     <td>{{ $order->shipping_price }} Ft</td>
                 </tr>
                 <tr>
-                    <td class="alignment-column"></td>
                     <td>Termékek ára:</td>
                     <td>{{ $order->price }} Ft</td>
                 </tr>
                 <tr>
-                    <td class="alignment-column"></td>
                     <td>Összesen:</td>
                     <td>{{ $order->price + $order->shipping_price }} Ft</td>
                 </tr>

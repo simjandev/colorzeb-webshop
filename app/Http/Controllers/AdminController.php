@@ -40,10 +40,13 @@ class AdminController extends Controller
     public function orderDetails($id) {
         $order = Order::where('id', $id)->first();
         $products = OrderProduct::where('order_id', $id)->get();
+        $emails = OrderStatusEmail::where('order_id', $id)->orderBy('created_at', 'DESC')->get();
+
         return view('admin/order_details', [
             'active' => 'Megrendelés részletek',
             'order' => $order,
             'products' => $products,
+            'emails' => $emails,
         ]);
     }
 
@@ -67,7 +70,7 @@ class AdminController extends Controller
         $emailRecord = new OrderStatusEmail();
         $emailRecord->order_id = $order->id;
         $emailRecord->status = $data['status'];
-        $emailRecord->custom_text = $data['customText'];
+        $emailRecord->custom_text = is_null($data['customText']) ? '' : $data['customText'];
         $emailRecord->save();
 
         Mail::to($data['email'])->send(new OrderStatus(Auth::user(), $order, $orderProducts, $data['status'], $data['customText']));
@@ -322,7 +325,7 @@ class AdminController extends Controller
                 }
             }
         }
-            
+
         if ($newProduct) { 
             return 'Sikeres termékfeltöltés. A termék megtekintéséhez kattints <a href="/product/' . $product->id . '">ide</a>.';
         } else {

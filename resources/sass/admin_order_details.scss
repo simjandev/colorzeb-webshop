@@ -16,7 +16,7 @@
 
 #menu-buttons-divider {
     margin-top: 0px;
-    background-color: $border-color;
+    background-color: $first;
     margin-bottom: 35px;
 }
 
@@ -113,4 +113,32 @@
     display: inline-block;
     float: right;
     width: 120px;
+}
+
+#order-status-emails {
+    margin-top: 60px;
+    font-size: 14px;
+
+    td {
+        box-sizing: border-box;
+        height: 30px;
+        padding: 0px;
+        padding-top: 1px;
+    }
+
+    td:nth-child(1) {
+        text-align: center;
+        width: 125px;
+        vertical-align: middle;
+    }
+
+    td:nth-child(2) {
+        vertical-align: middle;
+    }
+
+    td:nth-child(3) {
+        text-align: center;
+        width: 150px;
+        vertical-align: middle;
+    }
 }

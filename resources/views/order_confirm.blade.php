@@ -5,18 +5,13 @@
 @endsection
 
 @section('content')
-    <order-steps-component :_active="4"></order-steps-component>
-    <table id="order-confirm-items" class="table table-bordered table-sm col-lg-8 offset-lg-2">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Termék</th>
-                <th>Mennyiség</th>
-                <th>Egységár</th>
-                <th>Összesen</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div id="order-confirm" class="row">
+        <order-steps-component :_active="4"></order-steps-component>
+        <div id="order-confirm-items" class="col-sm-12 col-lg-8 offset-lg-2">
+            <div id="order-confirm-items-header">
+                <div id="order-confirm-items-count">{{ count($cart) }} db termék</div>
+            </div>
+            <hr class="gray">
             @php
                 $sumPriceAfterTax = 0;
                 $shippingPrice = 0;
@@ -45,125 +40,75 @@
                         $parameterText = '';
                     }
                 @endphp
-                <tr>
-                    <td><img src="{{ $cartItem->image }}" class="order-confirm-item-image"></td>
-                    <td>{{ $cartItem->productName . $parameterText }}</td>
-                    <td>{{ $cartItem->quantity }}</td>
-                    <td>{{ $cartItem->price }} Ft</td>
-                    <td>{{ $cartItem->price * $cartItem->quantity }} Ft</td>
-                </tr>
-            @endforeach           
-        </tbody>
-    </table>
+                <div class="order-confirm-item">
+                    <div class="order-confirm-item-image"><img src="{{ $cartItem->image }}"></div>
+                    <div class="order-confirm-item-name"><a href="/product/{{$cartItem->productId}}">{{ $cartItem->productName . $parameterText }}</a></div>
+                    <div class="order-confirm-item-price">{{ $cartItem->quantity }}x{{ $cartItem->price }} Ft</div>
+                </div>
+            @endforeach
+        </div>
 
-    <table id="order-customer-data" class="table table-bordered table-sm col-lg-8 offset-lg-2">
-        <thead>
-            <tr>
-                <th colspan="2">Vevő adatok</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>E-mail cím</td>
-                <td>{{ $orderCustomerData->email }}</td>
-            </tr>
-            <tr>
-                <td>Megjegyzés</td>
-                <td>{{ $orderCustomerData->comment }}</td>
-            </tr>
-            
-        </tbody>
-    </table>
+        <div id="order-customer-data" class="col-sm-12 col-lg-8 offset-lg-2">
+            <div class="order-info-line title">Megrendelés adatok</div>
+            <div class="order-info-line">
+                <div class="order-info-label">E-mail cím</div>
+                <div class="order-info-value">{{ $orderCustomerData->email }}</div>
+            </div>
+            <div class="order-info-line">
+                <div class="order-info-label">Megjegyzés</div>
+                <div class="order-info-value">{{ $orderCustomerData->comment }}</div>
+            </div>
+        </div>
 
-    <table id="order-customer-shipping-data" class="table table-bordered table-sm col-lg-8 offset-lg-2">
-        <thead>
-            <tr>
-                <th colspan="2">Szállítási adatok</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Név</td>
-                <td>{{ $orderCustomerData->shippingName }}</td>
-            </tr>
-            <tr>
-                <td>Telefonszám</td>
-                <td>{{ $orderCustomerData->shippingPhone }}</td>
-            </tr>
-            <tr>
-                <td>Cím</td>
-                <td>
-                    {{ $orderCustomerData->shippingZip . ' ' . $orderCustomerData->shippingCity . ', ' . $orderCustomerData->shippingAddress}}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <div id="order-customer-shipping-data" class="col-sm-12 col-lg-8 offset-lg-2">
+            <div class="order-info-line title">Szállítási adatok</div>
+            <div class="order-info-line">
+                <div class="order-info-label">Név</div>
+                <div class="order-info-value">{{ $orderCustomerData->shippingName }}</div>
+            </div>
+            <div class="order-info-line">
+                <div class="order-info-label">Telefonszám</div>
+                <div class="order-info-value">{{ $orderCustomerData->shippingPhone }}</div>
+            </div>
+            <div class="order-info-line">
+                <div class="order-info-label">Cím</div>
+                <div class="order-info-value">{{ $orderCustomerData->shippingZip . ' ' . $orderCustomerData->shippingCity . ', ' . $orderCustomerData->shippingAddress}}</div>
+            </div>
+        </div>
 
-    <table id="order-customer-billing-data" class="table table-bordered table-sm col-lg-8 offset-lg-2">
-        <thead>
-            <tr>
-                <th colspan="2">Számlázási adatok</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Név</td>
-                <td>{{ $orderCustomerData->billingName }}</td>
-            </tr>
+        <div id="order-customer-billing-data" class="col-sm-12 col-lg-8 offset-lg-2">
+            <div class="order-info-line title">Számlázási adatok</div>
+            <div class="order-info-line">
+                <div class="order-info-label">Név</div>
+                <div class="order-info-value">{{ $orderCustomerData->billingName }}</div>
+            </div>
             @if ($orderCustomerData->billingTaxNumber)
-                <tr>
-                    <td>Adószám</td>
-                    <td>{{ $orderCustomerData->billingTaxNumber }}</td>
-                </tr>
+                <div class="order-info-line">
+                    <div class="order-info-label">Adószám</div>
+                    <div class="order-info-value">{{ $orderCustomerData->billingTaxNumber }}</div>
+                </div>
             @endif
-            <tr>
-                <td>Cím</td>
-                <td>
-                    {{ $orderCustomerData->billingZip . ' ' . $orderCustomerData->billingCity . ', ' . $orderCustomerData->billingAddress}}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+            <div class="order-info-line">
+                <div class="order-info-label">Cím</div>
+                <div class="order-info-value">{{ $orderCustomerData->billingZip . ' ' . $orderCustomerData->billingCity . ', ' . $orderCustomerData->billingAddress}}</div>
+            </div>
+        </div>
 
-    @php
-        $sumPriceAfterTax += $shippingPrice;
-        $vat = round($sumPriceAfterTax - $sumPriceAfterTax / 1.27);
-        $priceBeforeTax = $sumPriceAfterTax - $vat;
-    @endphp
-    <table id="order-confirm-sum" class="table table-bordered table-sm col-lg-8 offset-lg-2">
-        <thead>
-            <tr>
-                <th class="alignment-column"></th>
-                <th>Tétel</th>
-                <th>Összeg</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="alignment-column"></td>
-                <td>Szállítás:</td>
-                <td>{{ $shippingPrice }} Ft</td>
-            </tr>
-            <tr>
-                <td class="alignment-column"></td>
-                <td>Nettó végösszeg:</td>
-                <td>{{ $priceBeforeTax }}</td>
-            </tr>
-            <tr>
-                <td class="alignment-column"></td>
-                <td>Áfa (27%):</td>
-                <td>{{ $vat }}</td>
-            </tr>
-            <tr>
-                <td class="alignment-column"></td>
-                <td>Fizetendő:</td>
-                <td>{{ $sumPriceAfterTax }} Ft</td>
-            </tr>
-        </tbody>
-    </table>
-    <div id="order-confirm-button-box" clasS="col-lg-8 offset-lg-2 text-right">
-        <a href="/create-order">
-            <button class="button blue">Megrendelés</button>
-        </a>
+        @php
+            $sumPriceAfterTax += $shippingPrice;
+            $vat = round($sumPriceAfterTax - $sumPriceAfterTax / 1.27);
+            $priceBeforeTax = $sumPriceAfterTax - $vat;
+        @endphp
+        <div id="order-confirm-sum" class="col-lg-2 offset-lg-8">
+            <div class="order-confirm-sum-line">Szállítás: <div class="order-confirm-sum-line-value">{{ $shippingPrice }} Ft</div></div>
+            <div class="order-confirm-sum-line">Nettó végösszeg: <div class="order-confirm-sum-line-value">{{ $priceBeforeTax }} Ft</div></div>
+            <div class="order-confirm-sum-line">Áfa (27%): <div class="order-confirm-sum-line-value">{{ $vat }} Ft</div></div>
+            <div class="order-confirm-sum-line">Fizetendő: <div class="order-confirm-sum-line-value">{{ $sumPriceAfterTax }} Ft</div></div>
+        </div>
+        <div id="order-confirm-button-box" clasS="col-sm-12 col-lg-8 offset-lg-2 text-right">
+            <a href="/create-order">
+                <button class="button blue"><i class="fa fa-smile-o"></i><div>Megrendelés</div></button>
+            </a>
+        </div>
     </div>
 @endsection

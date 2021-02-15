@@ -5,23 +5,13 @@
 @endsection
 
 @section('content')
-    <div id="back-button-box" class="col-sm-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
-        <a href="#" onclick="window.location.replace(document.referrer);">
-            <button id="back-button" class="button blue">
-                <i class="add-to-cart-button fa fa-arrow-left"></i> Vissza
-            </button>
-        </a>
-    </div>
+
     @if (is_null($product))
         <div class="col-sm-12 col-lg-10 col-xl-8 ffset-lg-1 soffset-xl-2">
             Nincs ilyen termék
         </div>
     @else
-        <div id="category" class="col-sm-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
-            Kategória:&nbsp;<a class="btn-link" href="">{{ $product->category_name }}</a>
-        </div>
-
-        <div id="product-box" class="row col-sm-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+        <div id="product-box" class="row col-sm-12 col-lg-10 offset-lg-1">
             @php
                 // is admin
                 $isAdmin = false;
@@ -46,6 +36,8 @@
                 :_main-image="{{ $product->main_image }}"
                 :_image-list="{{ json_encode($imagesArray) }}"
                 :_id="{{ $product->id }}"
+                :_category-id="{{ is_null($product->category_id) ? -1 : $product->category_id }}"
+                _category-name="{{ $product->category_name }}"
                 _name="{{ $product->name }}"
                 _description="{{ nl2br($product->description) }}"
                 :_price="{{ $product->price }}"

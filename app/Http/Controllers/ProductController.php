@@ -27,7 +27,7 @@ class ProductController extends Controller
         $selectedCategories = json_decode(urldecode($selectedCategories));
         $selectedFilters = json_decode(urldecode($selectedFilters));
         $page = intval($page);
-        $pageSize = 16;
+        $pageSize = 20;
     
         // create products query based on filters
         $products = \DB::table('products')->leftJoin('custom_product_parameters', 'products.id', '=', 'custom_product_parameters.product_id');

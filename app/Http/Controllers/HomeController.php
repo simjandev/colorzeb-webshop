@@ -7,10 +7,12 @@ use App\Product;
 use App\Order;
 use App\OrderProduct;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderStatus;
 use App\Mail\Welcome;
+use App\Mail\ContactMessage;
 use App\OrderStatusEmail;
+
 class HomeController extends Controller
 {
     public function __construct()
@@ -19,7 +21,22 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
+        $products = Product::orderBy('created_at', 'DESC')->limit(40)->get();
+        return view('home', [
+            'newProducts' => $products,
+        ]);
+    }
+
+    public function contact() {
+        return view('contact');
+    }
+
+    public function sendContactMessage(Request $request) {
+        $data = $request->all();
+
+        Mail::to('sim.jan.web@gmail.com')->send(new ContactMessage($data['name'], $data['email'], $data['text']));
+
+        return 'success';
     }
 
     public function userOrders(Request $request, $page = '') {

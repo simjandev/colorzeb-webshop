@@ -13,7 +13,7 @@
                 echo '<div class="row col-sm-12">' . $links . '</div>';
             }
         @endphp
-        <table id="user-orders" class="table table-bordered table-sm col-lg-12">
+        <table id="user-orders" class="table table-bordered table-sm col-lg-12 box-shadow">
             <thead>
                 <tr>
                     <th>M. szám</th>

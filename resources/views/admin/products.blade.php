@@ -15,7 +15,7 @@
             <button id="create-product-button" class="button blue">Új termék</button>
         </div>
 
-        <table id="products" class="table table-bordered table-sm col-sm-12">
+        <table id="products" class="table table-bordered table-sm col-sm-12 box-shadow">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -51,7 +51,7 @@
                                 </button>
                             </a>
                             <a href="/admin/edit-product/{{ $product->id }}">
-                                <button class="product-button button blue" title="Módosítás">
+                                <button class="product-button button blue" title="Szerkesztés">
                                     <i class="fa fa-edit"></i>
                                 </button>
                             </a>

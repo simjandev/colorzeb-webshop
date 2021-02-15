@@ -23,6 +23,9 @@
             </div>
         </div>
         <div id="product-parameters-box">
+            <div id="product-category">
+                <a href="#">{{ _categoryName }}</a>
+            </div>
             <div id="product-name">{{ _name }}</div>
             <div id="product-shipping"><i class="fa fa-truck"></i> Szállítás: {{ shippingPrice }}Ft, 3-5 munkanap</div>
             <div id="product-custom-parameters">
@@ -48,7 +51,7 @@
                     <div id="product-price" v-if="!discountPrice">{{ price }} Ft</div>
             </div>
             <a :href="'/admin/edit-product/' + _id" v-if="_isAdmin">
-                <button class="edit-product-button button blue"><i class="fa fa-edit"></i></button>
+                <button class="edit-product-button button blue" title="Szerkesztés"><i class="fa fa-edit"></i></button>
             </a>
             <add-to-cart-button-component :_id="_id" :_display-text="true" :_parameters="selectedParameters" ></add-to-cart-button-component>
         </div>
@@ -61,6 +64,8 @@
             _imageList: Array,
             _mainImage: Object,
             _id: Number,
+            _categoryId: Number,
+            _categoryName: String,
             _name: String,
             _description: String,
             _price: Number,

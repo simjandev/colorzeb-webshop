@@ -24,6 +24,7 @@ class CartController extends Controller
                 
                 $item = new \StdClass();
                 $item->id = $cartItems[$i]->id;
+                $item->productId = $product->id;
                 $item->name = $product->name;
                 $item->quantity = intval($cartItems[$i]->quantity);
                 $item->price = $cartItems[$i]->price;

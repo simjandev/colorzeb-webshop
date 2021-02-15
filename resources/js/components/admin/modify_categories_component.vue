@@ -24,7 +24,7 @@
             Ha egy kategória törlésre kerül, akkor a benne lévő termékek kategória nélküli termékek lesznek. 
             Ezek a termékek nem jelennek meg a keresőben ha a felhasználó kategóriára szűr.
         </div>
-        <table class="table table-bordered table-sm">
+        <table class="table table-bordered table-sm box-shadow">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -101,7 +101,6 @@
                             }
                         }
                     } else {
-                        console.log(res);
                     }
                 }.bind(this));
             },

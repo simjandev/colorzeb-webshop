@@ -1,18 +1,18 @@
 @import 'variables';
 
 #admin-side-panel {
-    border: 1px solid $border-color;
     padding: 0px;
     margin-top: 5px;
     height: 500px;
+    background-color: $white;
 
     #header {
         width: 100%;
         height: 32px;
         line-height: 32px;
-        background-color: rgb(225, 225, 225);
+        background-color: $first;
         text-align: center;
-        border-bottom: 1px solid $border-color;
+        color: $white;
     }
 
     .admin-menu-button {
@@ -20,16 +20,12 @@
         border-radius: 0px;
         box-shadow: 0px !important;
         border: 0px;
-        background-color: $background;
-        color: $font-color-light;
+        background-color: $white;
+        color: $font-color;
 
-        &.active, &:active, &:focus, &:hover {
-            background-color: $secondary !important;
-            color: $white;
-        }
-
-        &:focus, &:active {
+        &:hover, &.active, &:active, &:focus, &:visited {
             box-shadow: none !important;
+            background-color: $header-gray !important;
         }
     }
 }

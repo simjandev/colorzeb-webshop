@@ -3,7 +3,7 @@
         <button id="product-add-to-cart-button" class="button blue" v-if="_displayText" v-on:click.prevent="addProductToCart">
             Kosárba <i class="fa fa-shopping-cart"></i>
         </button>
-        <button class="product-add-to-cart-button button blue" v-if="!_displayText" v-on:click.prevent="addProductToCart">
+        <button class="product-add-to-cart-button button blue" title="Kosárba" v-if="!_displayText" v-on:click.prevent="addProductToCart">
             <i class="add-to-cart-button fa fa-shopping-cart"></i>
         </button>
         <input id="product-quantity" class="form-control blue" type="number" v-model="quantity" min="1" step="1" v-if="_displayText">

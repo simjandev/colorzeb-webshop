@@ -1,64 +1,37 @@
 <template>
-    <div class="row col-sm-12">
+    <div id="cart" class="row">
         <order-steps-component :_active="1"></order-steps-component>
-        <table id="cart-items" class="table table-bordered col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
-            <thead>
-                <tr>
-                    <th class="cart-item-image"></th>
-                    <th class="cart-item-name">Termék</th>
-                    <th class="cart-item-price">Egységár</th>
-                    <th class="cart-item-price-total">Összesen</th>
-                    <th class="cart-item-edit">Mennyiség</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr is="cart-item-component" v-for="cartItem in cartItems" :key="cartItem.id"
-                    :_id="cartItem.id"
-                    :_name="cartItem.name"
-                    :_price="cartItem.price"
-                    :_quantity="cartItem.quantity"
-                    :_image="cartItem.image"
-                    v-on:remove-cart-item="removeCartItem"
-                    v-on:modify-cart-item="modifyCartItem">
-                </tr>
-            </tbody>
-        </table>
-        <table id="cart-sum" class="table table-bordered col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
-            <thead>
-                <tr>
-                    <th class="alignment-column"></th>
-                    <th class="cart-sum-name">Tétel</th>
-                    <th class="cart-sum-value">Összeg</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="alignment-column"></td>
-                    <td class="cart-sum-name">Szállítás:</td>
-                    <td class="cart-sum-value">{{ shipping }} Ft</td>
-                </tr>
-                <tr>
-                    <td class="alignment-column"></td>
-                    <td class="cart-sum-name">Nettó végösszeg:</td>
-                    <td class="cart-sum-value">{{ sumPriceBeforeVat }} Ft</td>
-                </tr>
-                <tr>
-                    <td class="alignment-column"></td>
-                    <td class="cart-sum-name">Áfa (27%):</td>
-                    <td class="cart-sum-value">{{ sumVat }} Ft</td>
-                </tr>
-                <tr>
-                    <td class="alignment-column"></td>
-                    <td class="cart-sum-name">Fizetendő:</td>
-                    <td class="cart-sum-value">{{ sumPriceAfterVat }} Ft</td>
-                </tr>
-            </tbody>
-        </table>
-        <div id="payment-button-box" class="text-right col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+        <div id="cart-items" class="col-sm-12 col-lg-8 offset-lg-2">
+            <div id="cart-items-header">
+                <a id="back-to-shop-link" href="/">&lt; Vissza a boltba</a>
+                <div id="cart-items-count">{{ cartItems.length }} db termék a kosárban</div>
+            </div>
+            <hr class="gray">
+            <div is="cart-item-component" v-for="cartItem in cartItems" :key="cartItem.id"
+                :_id="cartItem.id"
+                :_productId="cartItem.productId"
+                :_name="cartItem.name"
+                :_price="cartItem.price"
+                :_quantity="cartItem.quantity"
+                :_image="cartItem.image"
+                v-on:remove-cart-item="removeCartItem"
+                v-on:modify-cart-item="modifyCartItem">
+            </div>
+        </div>
+
+        <div id="cart-sum" class="col-lg-2 offset-lg-8">
+            <div class="cart-sum-line">Szállítás: <div class="cart-sum-line-value">{{ shipping }} Ft</div></div>
+            <div class="cart-sum-line">Nettó végösszeg: <div class="cart-sum-line-value">{{ sumPriceBeforeVat }} Ft</div></div>
+            <div class="cart-sum-line">Áfa (27%): <div class="cart-sum-line-value">{{ sumVat }} Ft</div></div>
+            <div class="cart-sum-line">Fizetendő: <div class="cart-sum-line-value">{{ sumPriceAfterVat }} Ft</div></div>
+        </div>
+
+        <div id="next-button-box" class="text-right col-sm-12 col-lg-8 offset-lg-2">
             <a href="/order-login">
-                <button id="payment-button" class="button blue">Tovább</button>
+                <button id="next-button" class="button blue">Tovább</button>
             </a>
         </div>
+        <br><br><br><br><br><br><br><br>
     </div>
 </template>
 
@@ -104,11 +77,7 @@
                 }
             },
             updateCartValue: function() {
-                if (this.shipping) {
-                    this.$root.$emit('cart-value-changed', this.sumPriceAfterVat - this.shipping);
-                } else {
-                    this.$root.$emit('cart-value-changed', this.sumPriceAfterVat);
-                }
+                this.$root.$emit('cart-items-changed', this.cartItems.length);
             },
             modifyCartItem: function(id, quantity) {
                 for (var i = 0; i < this.cartItems.length; i++) {

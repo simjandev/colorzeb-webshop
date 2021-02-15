@@ -22,6 +22,15 @@ class Cart extends Model
         return $cartValue;
     }
 
+    public static function getNumberOfItems() {
+        if (!session()->has('cart')) {
+            return 0;
+        }
+        
+        $cart = json_decode(session('cart'));
+        return count($cart);
+    }
+
     public static function getShippingPrice() {
         if (session()->has('cart')) {
             $cart = json_decode(session('cart'));

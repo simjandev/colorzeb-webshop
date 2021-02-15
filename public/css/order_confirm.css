@@ -1,1 +1,175 @@
-#order-confirm-items .order-confirm-item-image{width:50px;height:50px}#order-confirm-items td,#order-confirm-items tr{height:50px;line-height:50px;text-align:center}#order-confirm-items th,#order-confirm-items tr:first-of-type{height:25px;line-height:25px}#order-confirm-items td:first-child{width:50px}#order-confirm-items td:nth-child(3),#order-confirm-items td:nth-child(4),#order-confirm-items td:nth-child(5){width:100px}#order-confirm-sum{border:none;text-align:center}#order-confirm-sum .alignment-column{border:none;background-color:#f4f4f4}#order-confirm-sum td:nth-child(2){width:200px}#order-confirm-sum td:nth-child(3){width:100px}#order-confirm-sum tr:last-child td:nth-child(2),#order-confirm-sum tr:last-child td:nth-child(3){background-color:#50bd4e;color:#fff;font-size:17px}#order-confirm-sum tr:last-child td:nth-child(2){border-right:1px solid #fff}#order-customer-billing-data,#order-customer-data,#order-customer-shipping-data{border:none;text-align:center;margin-top:20px}#order-customer-billing-data .alignment-column,#order-customer-data .alignment-column,#order-customer-shipping-data .alignment-column{border:none;background-color:#f4f4f4}#order-customer-billing-data td:first-child,#order-customer-data td:first-child,#order-customer-shipping-data td:first-child{width:300px}#order-customer-billing-data td:nth-child(2),#order-customer-data td:nth-child(2),#order-customer-shipping-data td:nth-child(2){width:400px}#order-confirm-button-box{padding:0}
+#content {
+  padding: 0px;
+}
+
+#content #order-confirm {
+  padding: 0px;
+  width: 90%;
+  max-width: 1400px;
+  margin: 0px auto;
+}
+
+#order-confirm-items {
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  padding: 0px;
+}
+
+#order-confirm-items #order-confirm-items-header {
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  padding-top: 15px;
+  font-size: 15px;
+}
+
+#order-confirm-items #order-confirm-items-count {
+  display: inline-block;
+  float: right;
+  width: calc(100% - 250px);
+  height: 25px;
+  margin-right: 125px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 25px;
+}
+
+#order-confirm-items .order-confirm-item {
+  box-sizing: border-box;
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  font-size: 15px;
+  text-align: center;
+  background-color: white;
+}
+
+#order-confirm-items .order-confirm-item:not(:last-child) {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+#order-confirm-items .order-confirm-item .order-confirm-item-image {
+  display: inline-block;
+  float: left;
+  height: 100%;
+  padding: 0px;
+  width: 80px;
+}
+
+#order-confirm-items .order-confirm-item .order-confirm-item-image img {
+  height: 60px;
+  width: 60px;
+}
+
+#order-confirm-items .order-confirm-item .order-confirm-item-name {
+  display: inline-block;
+  float: left;
+  width: calc(100% - 80px - 90px);
+  height: 100%;
+  padding: 0px;
+}
+
+#order-confirm-items .order-confirm-item .order-confirm-item-price {
+  display: inline-block;
+  float: left;
+  height: 100%;
+  padding: 0px;
+  width: 90px;
+}
+
+#order-confirm-sum {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0px;
+  margin-top: 30px;
+}
+
+#order-confirm-sum .order-confirm-sum-line {
+  width: 100%;
+}
+
+#order-confirm-sum .order-confirm-sum-line .order-confirm-sum-line-value {
+  display: inline-block;
+  float: right;
+}
+
+#order-customer-data,
+#order-customer-shipping-data,
+#order-customer-billing-data {
+  border: none;
+  text-align: center;
+  margin-top: 30px;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  padding: 0px;
+}
+
+#order-customer-data .order-info-line,
+#order-customer-shipping-data .order-info-line,
+#order-customer-billing-data .order-info-line {
+  display: block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+}
+
+#order-customer-data .order-info-line:not(:last-child),
+#order-customer-shipping-data .order-info-line:not(:last-child),
+#order-customer-billing-data .order-info-line:not(:last-child) {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+#order-customer-data .order-info-line.title,
+#order-customer-shipping-data .order-info-line.title,
+#order-customer-billing-data .order-info-line.title {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#order-customer-data .order-info-label,
+#order-customer-shipping-data .order-info-label,
+#order-customer-billing-data .order-info-label {
+  display: inline-block;
+  floaT: left;
+  width: 50%;
+  height: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#order-customer-data .order-info-value,
+#order-customer-shipping-data .order-info-value,
+#order-customer-billing-data .order-info-value {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  height: 30px;
+}
+
+#order-confirm-button-box {
+  padding: 0px;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  font-size: 15px;
+}
+
+#order-confirm-button-box button {
+  vertical-align: middle;
+  padding: 0px 5px;
+}
+
+#order-confirm-button-box button i {
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+#order-confirm-button-box button div {
+  float: right;
+  display: inline-block;
+  margin: 0px;
+  margin-left: 5px;
+  height: 100%;
+  line-height: 30px;
+}
+

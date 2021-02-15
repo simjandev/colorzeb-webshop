@@ -7,6 +7,9 @@ use App\Product;
 use App\Cart;
 use App\Order;
 use App\OrderProduct;
+use App\OrderStatusEmail;
+use App\Mail\OrderStatus;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -183,6 +186,17 @@ class OrderController extends Controller
             $user->shipping_address = $orderCustomerData->shippingAddress;
             $user->save();
         }
+
+        // send order status email
+        $orderProducts = OrderProduct::where('order_id', $order->id)->get();
+
+        $emailRecord = new OrderStatusEmail();
+        $emailRecord->order_id = $order->id;
+        $emailRecord->status = 'Feldolgozásra vár';
+        $emailRecord->custom_text = '';
+        $emailRecord->save();
+
+        Mail::to($order->email)->send(new OrderStatus(Auth::user(), $order, $orderProducts, 'Feldolgozásra vár', ''));
 
         // forget cart and order customer data
         $request->session()->forget('order-customer-data');

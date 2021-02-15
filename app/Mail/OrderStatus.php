@@ -34,6 +34,7 @@ class OrderStatus extends Mailable
     {
 
         $subjects = [
+            'Feldolgozásra vár' => 'Megrendelés #' . $this->order->id,
             'Megerősítve' => 'Rendelésed megerősítve',
             'Elutasítva' => 'Rendelésed elutasítva',
             'Fizetésre vár' => 'Rendelésed fizetésre vár',

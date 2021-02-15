@@ -1,20 +1,19 @@
 <template>
     <transition name="disappear">
-        <tr class="cart-item">
-            <td class="cart-item-image">
+        <div class="cart-item">
+            <div class="cart-item-image">
                 <img :src="image">
-            </td>
-            <td class="cart-item-name">{{ _name }}</td>
-            <td class="cart-item-price">{{ price }} Ft</td>
-            <td class="cart-item-price-total">{{ price * quantity }} Ft</td>
-            <td class="cart-item-edit">
+            </div>
+            <div class="cart-item-name"><a :href="'/product/' + _productId">{{ _name }}</a></div>
+            <div class="cart-item-price">{{ quantity }}x{{ price }} Ft</div>
+            <div class="cart-item-edit">
                 <input v-model.number="quantity" type="number" class="form-control blue cart-item-quantity" title="darabszám"
                     v-on:change="modifyCartItem(id, quantity)" v-on:click="modifyCartItem(id, quantity)" v-on:keyup="modifyCartItem(id, quantity)">
                 <button class="delete-button button red" title="Törlés" v-on:click="removeCartItem(id)">
                     <i class="fa fa-remove"></i>
                 </button>
-            </td>
-        </tr>
+            </div>
+        </div>
     </transition>
 </template>
 
@@ -30,6 +29,7 @@
         },
         props: {
             _id: Number,
+            _productId: Number,
             _name: String,
             _price: Number,
             _quantity: Number,
@@ -73,7 +73,7 @@
                 if (this.quantity > 1000) {
                     this.quantity = 1000;
                 }
-            }
+            },
         },
     }
 </script>

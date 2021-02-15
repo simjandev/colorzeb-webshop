@@ -1,5 +1,5 @@
 <template>
-    <div id="admin-side-panel" class="col-lg-2">
+    <div id="admin-side-panel" class="col-lg-2 box-shadow">
         <div id="header"><i class="fa fa-file"></i>&nbsp;&nbsp;Admin oldal</div>
 
         <a v-for="(link, index) in links" :key="index" :href="link.location"><button :class="{'active': active == link.text, 'button': true, 'blue': true, 'admin-menu-button': true}">{{ link.text }}</button></a>

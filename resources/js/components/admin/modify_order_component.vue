@@ -168,6 +168,23 @@
                 <option value="Törölve">Törölve</option>
             </select>
             <button id="order-status-email-button" class="button blue" v-on:click="sendOrderStatusEmail">Küldés</button>
+
+            <table id="order-status-emails" class="table table-bordered table-sm">
+                <thead>
+                    <tr>
+                        <th>Állapot</th>
+                        <th>Egyedi szöveg</th>
+                        <th>Dátum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(email, index) in orderEmails" :key="index">
+                        <td>{{ email.status}}</td>
+                        <td>{{ email.custom_text }}</td>
+                        <td>{{ email.created_at.split('.')[0].replace('T', ' ') }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </template>
@@ -177,11 +194,13 @@
         props: {
             _order: Object,
             _orderProducts: Array,
+            _orderEmails: Array,
         },
         data: function() {
             return {
                 order: this.$props._order,
                 orderProducts: this.$props._orderProducts,
+                orderEmails: this.$props._orderEmails,
                 successText: '',
                 currentMenu: 'details',
                 emailStatus: 'Megerősítve',
@@ -245,7 +264,11 @@
                 
                 axios.post('/admin/send-order-status-email', data).then(res => {
                     if (res.request.responseText == 'success') {
-
+                        this.orderEmails.unshift({
+                            status: data.status,
+                            custom_text: data.customText,
+                            created_at: 'Most',
+                        });
                     }
                 });
             }

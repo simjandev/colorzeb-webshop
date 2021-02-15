@@ -1,1 +1,29 @@
-#user-orders td{text-align:center;line-height:41px}#user-orders td:first-child{width:100px}#user-orders td:nth-child(2),#user-orders td:nth-child(3){width:120px}#user-orders td:nth-child(5){width:175px}#user-orders td:nth-child(6){width:135px}#user-orders td:nth-child(7){width:100px}
+#user-orders td {
+  text-align: center;
+  line-height: 41px;
+}
+
+#user-orders td:nth-child(1) {
+  width: 100px;
+}
+
+#user-orders td:nth-child(2) {
+  width: 120px;
+}
+
+#user-orders td:nth-child(3) {
+  width: 120px;
+}
+
+#user-orders td:nth-child(5) {
+  width: 175px;
+}
+
+#user-orders td:nth-child(6) {
+  width: 135px;
+}
+
+#user-orders td:nth-child(7) {
+  width: 100px;
+}
+

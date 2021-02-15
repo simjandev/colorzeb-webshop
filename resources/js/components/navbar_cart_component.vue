@@ -1,9 +1,8 @@
 <template>
     <a href="/cart">
         <li id="navbar-cart" class="nav-item">
+            <div id="navbar-cart-items"><div id="navbar-cart-items-count">{{ cartItemsCount }}</div> Kosár</div>
             <i id="navbar-cart-icon" class="fa fa-shopping-cart"></i>
-            <div id="navbar-cart-value-currency">&nbsp;Ft</div>
-            <div id="navbar-cart-value">{{ cartValue }}</div>
         </li>
     </a>
 </template>
@@ -15,12 +14,12 @@
         },
         data: function () {
             return {
-                cartValue: this.$props._value,
+                cartItemsCount: this.$props._value,
             };
         },
         mounted: function() {            
-            this.$root.$on('cart-value-changed', (newValue) => {
-                this.cartValue = newValue;
+            this.$root.$on('cart-items-changed', (newValue) => {
+                this.cartItemsCount = newValue;
             });
         },
     }

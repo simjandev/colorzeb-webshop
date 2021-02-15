@@ -1,6 +1,8 @@
 #step-bar-titles {
     display: block;
     margin: 0px;
+    margin-top: 35px;
+    padding: 0px;
     height: 46px;
     text-align: center;
     user-select: none;
@@ -33,7 +35,8 @@
     height: 50px;
     text-align: center;
     user-select: none;
-    
+    padding: 0px;
+
     li {
         position: relative;
         display: inline-block;

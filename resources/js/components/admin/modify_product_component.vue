@@ -355,8 +355,6 @@
             if (this.parameterSettingIndex > 1) {
                 this.parameterSettingIndex ++;
             }
-
-            console.log(this.customParameters);
         },
         methods: {
             visibleMenuChanged: function(newMenu) {
@@ -411,7 +409,6 @@
                 axios.post('/admin/upload-product-images', fd).then(res => {
                     this.imageFilesLabel = 'Kép kiválasztása';
                     this.imageNames = this.imageNames.concat(JSON.parse(res.request.responseText));
-                    console.log(this.imageNames);
                     this.selectedUploadImages = [];
                 });
                 

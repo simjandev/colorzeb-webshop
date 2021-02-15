@@ -1,37 +1,49 @@
 @import '../variables';
 
-#navbar-cart-value,
-#navbar-cart-value-currency,
+#navbar-cart-items,
 #navbar-cart-icon {
     display: inline-block;
     float: right;
     color: $white;
-    line-height: 41px;
+    line-height: 43px;   
 }
 
 #navbar-cart {
     width: 130px;
-    
     padding-right: 2px;
     height: 40px;
-    border-radius: 4px;
+    border-radius: 2px;
     cursor: pointer;
-    background-color: $secondary;
-    margin-right: 10px;
+    margin-right: 25px;
     transition: .1s;
 
     &:hover {
-        background-color: $secondary-dark;
+        #navbar-cart-items,
+        #navbar-cart-icon {
+            color: rgb(235, 235, 235);   
+        }
+
+        #navbar-cart-items-count {
+            background-color: rgb(235, 235, 235);
+        }
     }
-    
 }
 
 #navbar-cart-icon {
-    font-size: 32px;
-    margin-left: 6px;
-    margin-right: 10px;
+    font-size: 19px;
+    line-height: 43px;
+    margin-right: 8px;
 }
 
-#cart-icon:hover {
-    color: $white;
+#navbar-cart-items-count {
+    display: inline-block;
+    width: auto;
+    height: 18px;
+    line-height: 19px;
+    padding: 0px 8px;
+    border-radius: 9999px;
+    background-color: $white;
+    color: $first;
+    font-size: 12px;
+    font-weight: bold;
 }

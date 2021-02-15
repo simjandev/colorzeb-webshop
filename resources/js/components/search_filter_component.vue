@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-            <button id="filter-button" class="button blue" v-on:click="filter">Keresés</button>
+            <button id="filter-button" class="button blue" v-on:click="filter"><i class="fa fa-search"></i> Keresés</button>
         </div>
 </template>
 

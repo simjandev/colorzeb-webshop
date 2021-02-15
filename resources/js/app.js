@@ -19,7 +19,11 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 Vue.component('nav-product-search-component', require('./components/nav_product_search_component.vue').default);
 Vue.component('navbar-cart-component', require('./components/navbar_cart_component.vue').default);
+Vue.component('contact-component', require('./components/contact_component.vue').default);
+Vue.component('image-slide-component', require('./components/image_slide_component.vue').default);
+Vue.component('product-slide-component', require('./components/product_slide_component.vue').default);
 Vue.component('add-to-cart-button-component', require('./components/add_to_cart_button_component.vue').default);
+Vue.component('view-product-button-component', require('./components/view_product_button_component.vue').default);
 Vue.component('product-details-component', require('./components/product_details_component.vue').default);
 Vue.component('cart-item-component', require('./components/cart_item_component.vue').default);
 Vue.component('cart-component', require('./components/cart_component.vue').default);
@@ -36,7 +40,6 @@ Vue.component('modify-categories-component', require('./components/admin/modify_
 Vue.component('modify-order-component', require('./components/admin/modify_order_component.vue').default);
 Vue.component('admin-sidebar-component', require('./components/admin/admin_sidebar_component.vue').default);
 
-Vue.component('snowflake-component', require('./components/snowflake_component.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
