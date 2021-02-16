@@ -1,3 +1,7 @@
+.pagination-row nav:not(#navbar) {
+  margin-top: 0px;
+}
+
 #user-orders td {
   text-align: center;
   line-height: 41px;

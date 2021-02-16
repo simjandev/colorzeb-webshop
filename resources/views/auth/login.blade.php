@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
+@section('head')
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div id="login-card" class="card">
                 <div class="card-header">Bejelentkezés</div>
 
                 <div class="card-body">
@@ -53,7 +57,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary blue">
+                                <button id="login-button" type="submit" class="btn btn-primary blue">
                                     Bejelentkezés
                                 </button>
 

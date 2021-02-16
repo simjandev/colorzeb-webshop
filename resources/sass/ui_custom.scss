@@ -42,22 +42,37 @@ nav#navbar {
     background-color: $hover-gray !important;
 }
 
+
 .card, .card-header {
-    border-color: rgb(210, 210, 210);
+    color: $white;
+    border: none;
+    background-color: $first;
+
+    a, a:hover, a:focus, a:active, a:visited {
+        color: $white;
+    }
+
+    button.btn.btn-primary, button.btn.btn-primary:hover,
+    button.btn.btn-primary:focus, button.btn.btn-primary:active {
+        border: 1px solid $white;
+    }
+
+    .form-check input[type="checkbox"]:checked + label::before,
+    .form-check input[type="radio"]:checked + label::before {
+        background-color: $white !important;
+    }
+
+    .form-check input[type="checkbox"]:checked + label::after,
+    .form-check input[type="radio"]:checked + label::after {
+        color: $first;
+        font-size: bold;
+    }
 }
 
 .card-header{
-    background-color: rgb(225, 225, 225);
+    background-color: $first-dark;
 }
 
-.card.colored, .card-header.colored {
-    border-color: rgba(0, 0, 0, 0.2);
-}
-
-.card-header.colored {
-    background-color: $first;
-    color: $white;
-}
 
 // link
 .btn:focus{

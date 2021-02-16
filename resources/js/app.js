@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 window.Vue = require('vue');
+var VueCookie = require('vue-cookie');
+Vue.use(VueCookie);
 
 /**
  * The following block of code may be used to automatically register your
@@ -17,6 +19,7 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+Vue.component('cookie-notification-component', require('./components/cookie_notification_component.vue').default);
 Vue.component('nav-product-search-component', require('./components/nav_product_search_component.vue').default);
 Vue.component('navbar-cart-component', require('./components/navbar_cart_component.vue').default);
 Vue.component('contact-component', require('./components/contact_component.vue').default);

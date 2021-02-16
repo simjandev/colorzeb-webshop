@@ -14295,6 +14295,51 @@ body {
   }
 }
 
+#cookie-notification-box {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 0px;
+  z-index: 10;
+  background-color: #323232;
+  color: #323232;
+  transition-duration: 0.5s, 0s;
+  transition-property: height, color;
+  border: none;
+  padding: 0px;
+  overflow: hidden;
+}
+
+#cookie-notification-box.visible {
+  height: 90px;
+  padding: 15px;
+  color: white;
+}
+
+#cookie-notification-box button {
+  display: none;
+}
+
+#cookie-notification-box.visible button {
+  display: block;
+  background-color: #323232;
+  border: 1px solid #8c8c8c;
+  color: white;
+  transition: 0.1s;
+  margin-top: 10px;
+}
+
+#cookie-notification-box.visible button:hover {
+  background-color: #262626;
+  border: 1px solid #a0a0a0;
+}
+
+#cookie-notification-box.visible button:active,
+#cookie-notification-box.visible button:focus {
+  background-color: #202020;
+}
+
 .slider {
   position: relative;
   display: block;
@@ -14525,7 +14570,7 @@ li {
 }
 
 #navbar-cart {
-  width: 130px;
+  width: 90px;
   padding-right: 2px;
   height: 40px;
   border-radius: 2px;
@@ -14560,6 +14605,10 @@ li {
   color: #d21e49;
   font-size: 12px;
   font-weight: bold;
+}
+
+#content {
+  padding: 50px;
 }
 
 #admin-side-panel {

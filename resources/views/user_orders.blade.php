@@ -10,7 +10,7 @@
         @php
             $links = str_replace('?page=', '/', $orders->links());
             if (strlen($links)) {
-                echo '<div class="row col-sm-12">' . $links . '</div>';
+                echo '<div class="row pagination-row col-sm-12">' . $links . '</div>';
             }
         @endphp
         <table id="user-orders" class="table table-bordered table-sm col-lg-12 box-shadow">

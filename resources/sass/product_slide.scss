@@ -64,7 +64,7 @@ body, #content {
         left: 0px;
         width: 40px;
         height: 100%;
-        padding-top: calc(130px - 15px);
+        padding-top: calc(140px + 35px);
         font-size: 30px;
         text-align: center;
         cursor: pointer;
@@ -194,7 +194,7 @@ body, #content {
         height: 640px;
 
         .product-slider-left, .product-slider-right {
-            padding-top: calc(260px - 15px);
+            padding-top: calc(260px + 35px);
         }
         
         .product-slider-box {

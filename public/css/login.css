@@ -1,0 +1,14 @@
+#login-card {
+  margin-top: 150px;
+}
+
+#login-button {
+  margin-right: 10px;
+}
+
+input.form-control {
+  height: 32px;
+  margin-top: 3px;
+  border-radius: 2px;
+}
+

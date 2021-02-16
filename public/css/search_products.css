@@ -3,6 +3,11 @@
   padding: 0px;
 }
 
+.pagination-row {
+  margin: 0px;
+  padding: 0px;
+}
+
 #products {
   margin: 0px;
   padding-left: 0px;

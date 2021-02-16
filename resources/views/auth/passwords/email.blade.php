@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
+@section('head')
+    <link href="{{ asset('css/reset_email.css') }}" rel="stylesheet">
+@endsection
+
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div id="reset-card" class="card">
                 <div class="card-header">Jelszó visszaállítása</div>
 
                 <div class="card-body">

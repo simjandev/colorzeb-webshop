@@ -44,21 +44,52 @@ nav#navbar .container {
 
 .card,
 .card-header {
-  border-color: #d2d2d2;
+  color: white;
+  border: none;
+  background-color: #d21e49;
+}
+
+.card a,
+.card a:hover,
+.card a:focus,
+.card a:active,
+.card a:visited,
+.card-header a,
+.card-header a:hover,
+.card-header a:focus,
+.card-header a:active,
+.card-header a:visited {
+  color: white;
+}
+
+.card button.btn.btn-primary,
+.card button.btn.btn-primary:hover,
+.card button.btn.btn-primary:focus,
+.card button.btn.btn-primary:active,
+.card-header button.btn.btn-primary,
+.card-header button.btn.btn-primary:hover,
+.card-header button.btn.btn-primary:focus,
+.card-header button.btn.btn-primary:active {
+  border: 1px solid white;
+}
+
+.card .form-check input[type=checkbox]:checked + label::before,
+.card .form-check input[type=radio]:checked + label::before,
+.card-header .form-check input[type=checkbox]:checked + label::before,
+.card-header .form-check input[type=radio]:checked + label::before {
+  background-color: white !important;
+}
+
+.card .form-check input[type=checkbox]:checked + label::after,
+.card .form-check input[type=radio]:checked + label::after,
+.card-header .form-check input[type=checkbox]:checked + label::after,
+.card-header .form-check input[type=radio]:checked + label::after {
+  color: #d21e49;
+  font-size: bold;
 }
 
 .card-header {
-  background-color: #e1e1e1;
-}
-
-.card.colored,
-.card-header.colored {
-  border-color: rgba(0, 0, 0, 0.2);
-}
-
-.card-header.colored {
-  background-color: #d21e49;
-  color: white;
+  background-color: #c21a41;
 }
 
 .btn:focus {
