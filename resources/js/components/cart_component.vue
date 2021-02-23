@@ -75,6 +75,8 @@
                         break;
                     }
                 }
+
+                this.calculateShippingPrice();
             },
             updateCartValue: function() {
                 this.$root.$emit('cart-items-changed', this.cartItems.length);
@@ -89,6 +91,14 @@
                     }
                 }
             },
+            calculateShippingPrice: function() {
+                this.shipping = 0;
+                for (var i = 0; i < this.cartItems.length; i++) {
+                    if (this.cartItems[i].shippingPrice > this.shipping) {
+                        this.shipping = this.cartItems[i].shippingPrice;
+                    }
+                }
+            }
         },
         mounted: function() {
             this.calculateSumPrices();
@@ -96,10 +106,6 @@
             // remove empty parameters from cart items
             // and calculate shipping price
             for (var i = 0; i < this.cartItems.length; i++) {
-                if (this.cartItems[i].shippingPrice > this.shipping) {
-                    this.shipping = this.cartItems[i].shippingPrice;
-                }
-
                 if (this.cartItems[i].parameters[2] == '') {
                     this.cartItems[i].parameters.splice(2, 1);
                 }
@@ -118,6 +124,7 @@
             }
 
             this.calculateSumPrices();
-        },
+            this.calculateShippingPrice();
+        }
     }
 </script>

@@ -73,7 +73,7 @@ class AdminController extends Controller
         $emailRecord->custom_text = is_null($data['customText']) ? '' : $data['customText'];
         $emailRecord->save();
 
-        Mail::to($data['email'])->send(new OrderStatus(Auth::user(), $order, $orderProducts, $data['status'], $data['customText']));
+        Mail::to($data['email'])->send(new OrderStatus($order, $orderProducts, $data['status'], $data['customText']));
 
         return 'success';
     }

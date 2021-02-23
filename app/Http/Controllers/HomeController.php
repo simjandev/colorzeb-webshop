@@ -102,16 +102,6 @@ class HomeController extends Controller
 
     public function dev()
     {
-        $order = Order::where('id', 449)->first();
-        $orderProducts = OrderProduct::where('order_id', 449)->get();
-
-        $emailRecord = new OrderStatusEmail();
-        $emailRecord->order_id = $order->id;
-        $emailRecord->status = 'Megerősítve';
-        $emailRecord->custom_text = "Egyedi megrendelés szöveg";
-        $emailRecord->save();
-
-        //return new Welcome(Auth::user());
-        return new OrderStatus(Auth::user(), $order, $orderProducts, 'Megerősítve', "Egyedi megrendelés szöveg");
+       
     }
 }

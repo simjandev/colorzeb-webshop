@@ -4,7 +4,7 @@
         @endcomponent
     @endslot
     <div class="order-text-box">
-        <h3>Kedves {{ $user->name }},</h3>
+        <h3>Kedves {{ $order->billing_name }},</h3>
         @if ($status == 'Feldolgozásra vár')
             #{{ $order->id }} számú rendelésed rögzítettük!
         @endif

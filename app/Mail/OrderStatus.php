@@ -16,9 +16,8 @@ class OrderStatus extends Mailable
      *
      * @return void
      */
-    public function __construct($user, $order, $orderProducts, $status, $customText)
+    public function __construct($order, $orderProducts, $status, $customText)
     {
-        $this->user = $user;
         $this->order = $order;
         $this->orderProducts = $orderProducts;
         $this->status = $status;
@@ -46,7 +45,6 @@ class OrderStatus extends Mailable
         return $this->markdown('emails.order_status')
                     ->subject($subjects[$this->status])
                     ->with([
-                        'user' => $this->user,
                         'order' => $this->order,
                         'orderProducts' => $this->orderProducts,
                         'customText' => $this->customText,

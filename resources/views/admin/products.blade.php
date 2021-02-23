@@ -12,7 +12,7 @@
         @endphp
         <div id="pagination-box" class="col-sm-12">
             <div id="admin-products-nav">{!! $links !!}</div>
-            <button id="create-product-button" class="button blue">Új termék</button>
+            <a href="/admin/create-product"><button id="create-product-button" class="button blue">Új termék</button></a>
         </div>
 
         <table id="products" class="table table-bordered table-sm col-sm-12 box-shadow">

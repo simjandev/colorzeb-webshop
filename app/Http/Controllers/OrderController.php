@@ -196,13 +196,13 @@ class OrderController extends Controller
         $emailRecord->custom_text = '';
         $emailRecord->save();
 
-        Mail::to($order->email)->send(new OrderStatus(Auth::user(), $order, $orderProducts, 'Feldolgozásra vár', ''));
+        Mail::to($order->email)->send(new OrderStatus($order, $orderProducts, 'Feldolgozásra vár', ''));
 
         // forget cart and order customer data
         $request->session()->forget('order-customer-data');
         $request->session()->forget('cart');
 
 
-        return view('home');
+        return redirect('home');
     }
 }
