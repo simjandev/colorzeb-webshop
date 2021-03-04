@@ -1,19 +1,20 @@
 @extends('layouts.app')
 
 @section('head')
-    
+    <link href="{{ asset('css/order_steps.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/order_login.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
     <div id="order-login">
         <order-steps-component :_active="2"></order-steps-component>
         <div class="col-lg-12 col-xl-10 offset-xl-1 row">
-            <div class="col-sm-6 order-login-box">
+            <div class="col-sm-12 col-md-6 order-login-box">
                 @guest
                     <order-login-component></order-login-component>
                 @endguest
             </div>
-            <div class="col-sm-6 order-login-box">
+            <div class="col-sm-12 col-md-6 order-login-box">
                 <div class="alert alert-success">
                     <b>Miért regisztrálj?</b>
                     <ul>

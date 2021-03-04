@@ -10,6 +10,7 @@
     img {
         position: absolute;
         width: 100%;
+        height: auto;
     }
 
     #image-slide-left-arrow {
@@ -87,4 +88,20 @@
             }
         }
     }
+}
+
+@media (max-width: 400px) {
+    .image-slide {
+        #image-slide-left-arrow, #image-slide-right-arrow {
+            width: 44px;
+            height: 44px;
+            font-size: 30px;
+        }
+
+        #image-circles .image-circle {
+            width: 13px;
+            height: 13px;
+        }
+    }
+
 }

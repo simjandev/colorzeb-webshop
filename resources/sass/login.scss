@@ -1,4 +1,6 @@
 #login-card {
+    max-width: 720px;
+    margin: auto;
     margin-top: 150px;
 }
 
@@ -6,8 +8,58 @@
     margin-right: 10px;
 }
 
+#login-input-box {
+    margin-top: 25px;
+    padding-left: 20px;
+}
+
+#remember-box {
+    padding-left: 20px;
+}
+
 input.form-control {
     height: 32px;
     margin-top: 3px;
     border-radius: 2px;
+}
+
+
+@media (max-width: 1020px) {
+    #content {
+        padding: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+    #login-card {
+        margin-top: 50px;
+    }
+
+    #remember-box, #login-input-box {
+        padding-left: 0px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 815px) {
+
+    a#password-reset-button {
+        font-size: 16px !important;
+        display: block;
+        margin-top: 15px;
+    }
+}
+
+
+@media (max-width: 450px) {
+    a#password-reset-button {
+        font-size: 16px !important;
+        display: block;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 320px) {
+    a#password-reset-button {
+        font-size: 14px !important;
+    }
 }

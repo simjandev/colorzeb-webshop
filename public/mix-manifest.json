@@ -13,9 +13,13 @@
     "/css/search_products.css": "/css/search_products.css",
     "/css/product_details.css": "/css/product_details.css",
     "/css/order_confirm.css": "/css/order_confirm.css",
+    "/css/order_steps.css": "/css/order_steps.css",
+    "/css/order_login.css": "/css/order_login.css",
+    "/css/order_shipping.css": "/css/order_shipping.css",
     "/css/user_orders.css": "/css/user_orders.css",
     "/css/user_order_details.css": "/css/user_order_details.css",
     "/css/admin_orders.css": "/css/admin_orders.css",
     "/css/admin_order_details.css": "/css/admin_order_details.css",
-    "/css/admin_search_products.css": "/css/admin_search_products.css"
+    "/css/admin_search_products.css": "/css/admin_search_products.css",
+    "/js/app.js.map": "/js/app.js.map"
 }

@@ -8,7 +8,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-xs-12 col-md-10">
             <div id="reset-card" class="card">
                 <div class="card-header">Jelszó visszaállítása</div>
 

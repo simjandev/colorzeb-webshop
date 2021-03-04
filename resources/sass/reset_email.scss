@@ -1,4 +1,6 @@
 #reset-card {
+    max-width: 720px;
+    margin: auto;
     margin-top: 150px;
 }
 
@@ -6,4 +8,10 @@ input.form-control {
     height: 32px;
     margin-top: 3px;
     border-radius: 2px;
+}
+
+@media (max-width: 1020px) {
+    #content {
+        padding: 0px;
+    }
 }

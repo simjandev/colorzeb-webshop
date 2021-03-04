@@ -5,14 +5,10 @@
 @endsection
 
 @section('content')
-    <div class="row pagination-row col-sm-12">
-        <div class="row col-sm-12 col-md-8 col-lg-9 col-xl-10 offset-md-4 offest-lg-3 offset-xl-2">
-            @php
-                $links = str_replace('?page=', '/', $products->links());
-                echo $links;
-            @endphp
-        </div>
-    </div>
+    @php
+        $links = str_replace('?page=', '/', $products->links());
+        echo $links;
+    @endphp
     <div id="products-page" class="row col-sm-12">
         <search-filter-component
             :_categories="{{ $categories }}"
@@ -71,12 +67,8 @@
             @endforeach
         </div>
     </div>
-    <div class="row pagination-row col-sm-12">
-        <div class="row col-sm-12 col-md-8 col-lg-9 col-xl-10 offset-md-4 offest-lg-3 offset-xl-2">
-            @php
-                $links = str_replace('?page=', '/', $products->links());
-                echo $links;
-            @endphp
-        </div>
-    </div>
+    @php
+        $links = str_replace('?page=', '/', $products->links());
+        echo $links;
+    @endphp
 @endsection

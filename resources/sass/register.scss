@@ -11,3 +11,9 @@ input.form-control {
     margin-top: 3px;
     border-radius: 2px;
 }
+
+@media (max-width: 1020px) {
+    #content {
+        padding: 0px;
+    }
+}

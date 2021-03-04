@@ -100,3 +100,106 @@
         }
     }
 }
+
+@media (max-width: 850px) {
+    #contact {
+        height: auto;
+        display: block;
+        padding-bottom: 20px;
+        background-color: $first;
+        margin-top: 0px;
+        margin-bottom: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        #contact-message, #contact-infos {
+            display: block;
+            float: none;
+            width: 100%;
+            height: 450px;
+        }
+
+        #contact-infos {
+            padding-top: 10px;
+            padding-bottom: 50px;
+            height: auto;
+        }
+
+        #contact-message {
+            background-position-x: 22px;
+
+            label {
+                padding-left: 115px;
+                font-size: 20px;
+            }
+        }
+
+        .contact-info {
+            width: calc(100% - 20px);
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    #content {
+        padding: 0px;
+    }
+
+    #contact {
+        margin: 50px 20px;
+        width: calc(100% - 40px);
+
+        #contact-message {
+            background-size: 60px auto;
+            background-position-y: 20px;
+
+            label {
+                padding-left: 90px;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    #contact {
+        #contact-message {
+            label {
+                font-size: 16px;
+            }
+        }
+
+        .contact-info-text {
+            font-size: 18px;
+            line-height: 46px;
+        }
+
+        .contact-info-icon {
+            font-size: 20px;
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    #contact {
+        width: calc(100% - 8px);
+        margin-left: 4px;
+        margin-right: 0px;
+
+        #contact-message {
+
+            label {
+                font-size: 15px;
+            }
+        }
+
+        .contact-info-text {
+            font-size: 16px;
+            line-height: 46px;
+        }
+
+        .contact-info-icon {
+            font-size: 24px;
+        }
+    }
+}

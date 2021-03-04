@@ -1,6 +1,6 @@
 <template>
     <div class="image-slide">
-        <img :src="image.src" v-for="(image, index) in images" :key="index" v-bind:style="{left: image.left}">
+        <img class="image-slide-img" v-on:load="resize" :src="image.src" v-for="(image, index) in images" :key="index" v-bind:style="{left: image.left}">
         <div id="image-circles">
             <div class="image-circle" v-for="(image, index) in images" :key="index" v-bind:class="{selected: (index == currentIndex)}" v-on:click="slideTo(index)"></div>
         </div>
@@ -51,7 +51,7 @@
                     this.moving = false;
                 }
             },
-            slideTo(index) {
+            slideTo: function(index) {
                 if (index == this.currentIndex || this.moving || index < 0 || index > this.images.length - 1) {
                     return;
                 }
@@ -73,17 +73,22 @@
                 this.currentIndex = index;
                 this.moving = true;
             },
-            autoMove() {
+            autoMove: function() {
                 var nextIndex = this.currentIndex + 1;
                 if (nextIndex > this.images.length - 1) {
                     nextIndex = 0;
                 }
 
                 this.slideTo(nextIndex);
+            },
+            resize: function() {
+                var height = document.getElementsByClassName('image-slide-img')[0].clientHeight;
+                document.getElementsByClassName('image-slide')[0].style.height = height + 'px';
             }
         },
 
         mounted: function() {
+            window.addEventListener('resize', this.resize);
             for (var i = 0; i < this.$props._images.length; i++) {
                 this.images.push({
                     src: this.$props._images[i],

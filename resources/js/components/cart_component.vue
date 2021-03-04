@@ -1,7 +1,7 @@
 <template>
     <div id="cart" class="row">
         <order-steps-component :_active="1"></order-steps-component>
-        <div id="cart-items" class="col-sm-12 col-lg-8 offset-lg-2">
+        <div id="cart-items" class="col-sm-12 col-lg-10 offset-lg-1">
             <div id="cart-items-header">
                 <a id="back-to-shop-link" href="/">&lt; Vissza a boltba</a>
                 <div id="cart-items-count">{{ cartItems.length }} db termék a kosárban</div>
@@ -19,14 +19,14 @@
             </div>
         </div>
 
-        <div id="cart-sum" class="col-lg-2 offset-lg-8">
+        <div id="cart-sum" class="col-lg-2 offset-lg-9">
             <div class="cart-sum-line">Szállítás: <div class="cart-sum-line-value">{{ shipping }} Ft</div></div>
             <div class="cart-sum-line">Nettó végösszeg: <div class="cart-sum-line-value">{{ sumPriceBeforeVat }} Ft</div></div>
             <div class="cart-sum-line">Áfa (27%): <div class="cart-sum-line-value">{{ sumVat }} Ft</div></div>
             <div class="cart-sum-line">Fizetendő: <div class="cart-sum-line-value">{{ sumPriceAfterVat }} Ft</div></div>
         </div>
 
-        <div id="next-button-box" class="text-right col-sm-12 col-lg-8 offset-lg-2">
+        <div id="next-button-box" class="text-right col-sm-12 col-lg-9 offset-lg-2">
             <a href="/order-login">
                 <button id="next-button" class="button blue">Tovább</button>
             </a>

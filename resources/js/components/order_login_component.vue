@@ -6,13 +6,13 @@
                 <form action="/order-auth" v-on:submit.prevent="login">
                     <div class="form-group row">
                         <label for="email" class="col-md-4 col-form-label text-md-right">E-mail cím</label>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <input id="email" type="email" class="form-control blue" v-model="email" required autocomplete="email" autofocus>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="password" class="col-md-4 col-form-label text-md-right">Jelszó</label>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <input id="password" type="password" class="form-control blue" v-model="password" required autocomplete="current-password">
                         </div>
                     </div>

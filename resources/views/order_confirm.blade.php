@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
+    <link href="{{ asset('css/order_steps.css') }}" rel="stylesheet">
     <link href="{{ asset('css/order_confirm.css') }}" rel="stylesheet">
 @endsection
 
@@ -71,8 +72,12 @@
                 <div class="order-info-value">{{ $orderCustomerData->shippingPhone }}</div>
             </div>
             <div class="order-info-line">
+                <div class="order-info-label">Város</div>
+                <div class="order-info-value">{{ $orderCustomerData->shippingZip . ' (' . $orderCustomerData->shippingCity . ')' }}</div>
+            </div>
+            <div class="order-info-line">
                 <div class="order-info-label">Cím</div>
-                <div class="order-info-value">{{ $orderCustomerData->shippingZip . ' ' . $orderCustomerData->shippingCity . ', ' . $orderCustomerData->shippingAddress}}</div>
+                <div class="order-info-value">{{ $orderCustomerData->shippingAddress }}</div>
             </div>
         </div>
 
@@ -89,8 +94,12 @@
                 </div>
             @endif
             <div class="order-info-line">
+                <div class="order-info-label">Város</div>
+                <div class="order-info-value">{{ $orderCustomerData->billingZip . ' (' . $orderCustomerData->billingCity . ')' }}</div>
+            </div>
+            <div class="order-info-line">
                 <div class="order-info-label">Cím</div>
-                <div class="order-info-value">{{ $orderCustomerData->billingZip . ' ' . $orderCustomerData->billingCity . ', ' . $orderCustomerData->billingAddress}}</div>
+                <div class="order-info-value">{{ $orderCustomerData->billingAddress }}</div>
             </div>
         </div>
 

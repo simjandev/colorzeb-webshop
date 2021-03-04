@@ -1,11 +1,10 @@
 @import 'variables';
 
-#products-page {
-    margin: 0px;
-    padding: 0px;
+#content {
+    padding-bottom: 50px !important;
 }
 
-.pagination-row {
+#products-page {
     margin: 0px;
     padding: 0px;
 }
@@ -32,7 +31,7 @@
 
 .product-box > a {
     box-sizing: border-box;
-    width: 300px;
+    width: 100%;
     height: 100%;
 
     &:hover, &:active, &:focus {
@@ -294,4 +293,72 @@ label[for=discount-filter].form-check-label {
         font-size: 15px;
     }
 
+}
+
+
+@media (max-width: 940px) {
+    .product-box {
+        width: 240px;
+        height: 367px;
+        padding: 10px;
+    }
+    
+    .product-inner-box {
+
+        .product-image-box {
+            .product-box-discount {
+                font-size: 15px;
+                width: 70px;
+                height: 28px;
+                line-height: 28px;
+            }
+        }
+    
+        .product-name, .product-price, .product-old-price {
+        }
+    
+        .product-name {
+            font-size: 15px;
+            height: 50px;
+            line-height: 25px;
+            margin-top: 10px;
+            padding: 0px 10px;
+        }
+    
+        .product-bottom-box {
+            box-sizing: border-box;
+            padding: 0px 10px 10px 10px;
+        }
+    
+        .product-add-to-cart-button, .view-product-button, .edit-product-button {
+            height: 32px;
+            width: 32px;
+            line-height: 32px;
+            padding-right: 4px;
+            font-size: 20px;
+            margin-top: 25px;
+        }
+        
+        .product-add-to-cart-button {
+            padding-left: 3px;
+        }
+    
+        .product-price {
+            margin-top: 18px;
+            font-size: 18px;
+        }
+    
+        .product-old-price {
+            font-size: 14px;
+            margin-top: -5px;
+            height: 20px;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    #content {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }

@@ -8,7 +8,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-8">
             <div id="register-card" class="card">
                 <div class="card-header">Regisztráció</div>
 
@@ -69,7 +69,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button id="register-button" type="submit" class="btn btn-primary blue">
-                                    {{ __('Register') }}
+                                    Regisztráció
                                 </button>
                             </div>
                         </div>

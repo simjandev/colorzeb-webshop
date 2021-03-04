@@ -33,7 +33,7 @@
         </div>
     </div>
     <div id="categories" class="row col-sm-12">
-        <div class="home-category-box col-sm-6 cl-lg-4 col-xl-3 text-center">
+        <div class="home-category-box col-sm-6 col-xl-3 text-center">
             <div class="home-category">
                 <div class="home-category-image-box"><img src="/images/wall-stickers.jpg"></div>
                 <div class="home-category-name">Matricák</div>
@@ -43,7 +43,7 @@
                 <a href="#"><button class="button blue">Laptop matricák</button></a>
             </div>
         </div>
-        <div class="home-category-box col-sm-6 cl-lg-4 col-xl-3 text-center">
+        <div class="home-category-box col-sm-6 col-xl-3 text-center">
             <div class="home-category">
                 <div class="home-category-image-box"><img src="/images/truck.jpg"></div>
                 <div class="home-category-name">Egyedi matrica árajánlat</div>
@@ -51,7 +51,7 @@
                 <a href="#"><button class="button blue">Egyedi árajánlat</button></a>
             </div>
         </div>
-        <div class="home-category-box col-sm-6 cl-lg-4 col-xl-3 text-center">
+        <div class="home-category-box col-sm-6 col-xl-3 text-center">
             <div class="home-category">
                 <div class="home-category-image-box"><img src="/images/custom-photo-stickers.jpg"></div>
                 <div class="home-category-name">Matrica fényképből</div>
@@ -59,7 +59,7 @@
                 <a href="#"><button class="button blue">Matrica fényképből</button></a>
             </div>
         </div>
-        <div class="home-category-box col-sm-6 cl-lg-4 col-xl-3 text-center">
+        <div class="home-category-box col-sm-6 col-xl-3 text-center">
             <div class="home-category">
                 <div class="home-category-image-box"><img src="/images/custom-boxes.jpg"></div>
                 <div class="home-category-name">Papír ajándékok és díszek</div>
