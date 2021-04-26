@@ -96,7 +96,7 @@ class ProductController extends Controller
             }
         }
 
-        $products = $products->groupBy('products.id')->paginate($pageSize, ['products.id'], 'page', $page)->withPath($paginatorUrl);
+        $products = $products->distinct('products.id')->paginate($pageSize, ['products.id'], 'page', $page)->withPath($paginatorUrl);
         return view('search_products', [
             'products' => $products,
             'categories' => json_encode($categories),
