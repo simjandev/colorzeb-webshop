@@ -247,5 +247,13 @@
         #order-confirm-items .order-confirm-item .order-confirm-item-name {
             font-size: 13px;
         }
+
+        .order-confirm-sum-line {
+            padding-left: 5px;
+    
+            .order-confirm-sum-line-value {
+                padding-right: 5px;
+            }
+        }
     }
 }

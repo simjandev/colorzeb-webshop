@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-    @include('user_side_panel')
-    <div class="row col-lg-8 offset-lg-1">
+    <div id="user-orders-box" class="col-sm-12">
         @php
             $links = str_replace('?page=', '/', $orders->links());
             if (strlen($links)) {
@@ -17,7 +16,7 @@
             <thead>
                 <tr>
                     <th>M. szám</th>
-                    <th>Fizetendő</th>
+                    <th>Végösszeg</th>
                     <th>Fizetve</th>
                     <th>Állapot</th>
                     <th>Időpont</th>

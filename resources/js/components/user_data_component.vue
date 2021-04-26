@@ -1,5 +1,5 @@
 <template>
-    <div class="col-sm-12 col-lg-8 offset-lg-1">
+    <div id="user-data" class="col-sm-12 align-center">
         <form v-on:submit.prevent="confirmShippingData">
             <h5>Szállítási adatok</h5>
             <hr>

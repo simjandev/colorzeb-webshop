@@ -21,7 +21,7 @@
             :_current-maximum-price="{{ $currentMaximumPrice }}"
             _text="{{ $text }}"
         ></search-filter-component>
-        <div id="products" class="col-sm-12 col-md-8 col-lg-9 col-xl-10 align-top">
+        <div id="products" class="col-sm-12 col-md-8 col-lg-9 col-xl-9 align-top">
             @foreach ($products as $key => $product)
                 <div class="product-box">
                     <a href="/product/{{ $product->id }}">

@@ -6,7 +6,7 @@
 
 @section('content')
     @include('admin.side_panel')
-    <div class="row col-lg-8 offset-lg-1">
+    <div class="row col-lg-9 col-xl-8 offset-xl-1">
         @php
             $links = str_replace('?page=', '/', $orders->links());
             if (strlen($links)) {

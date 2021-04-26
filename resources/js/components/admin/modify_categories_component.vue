@@ -1,5 +1,5 @@
 <template>
-    <div id="categories" class="col-sm-8 offset-lg-1" >
+    <div id="categories" class="row col-lg-9 col-xl-8 offset-xl-1" >
         <div id="delete-category-modal" class="modal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

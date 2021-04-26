@@ -11,8 +11,10 @@
                     </button>
                 </div>
                 <div id="product-small-image-slide">
-                    <div class="product-small-image" v-for="(image, index) in images" :key="index" v-if="image.visible">
-                        <img :src="'/product-image/' + image.name + '/' + image.color + '/' + image.extraImage.file" v-on:click="selectImage('/product-image/' + image.name + '/' + image.color + '/' + image.extraImage.file)">
+                    <div id="product-small-image-slide-overflow">
+                        <div class="product-small-image" v-for="(image, index) in images" :key="index" v-if="image.visible">
+                            <img :src="'/product-image/' + image.name + '/' + image.color + '/' + image.extraImage.file" v-on:click="selectImage('/product-image/' + image.name + '/' + image.color + '/' + image.extraImage.file)">
+                        </div>
                     </div>
                 </div>
                 <div id="product-image-right-arrow-box">
@@ -99,6 +101,7 @@
 
         mounted: function () {
             this.updateArrowButtonStates();
+            window.addEventListener('resize', this.updateArrowButtonStates.bind(this));
         },
 
         methods: {
@@ -166,7 +169,14 @@
 
             updateArrowButtonStates() {
                 this.leftArrowEnabled = this.firstImageIndex > 0;
-                this.rightArrowEnabled = this.firstImageIndex < this.images.length - 4;
+
+                // calculate visible images count
+                var boxWidth = document.getElementById('product-small-image-slide').offsetWidth - 2;
+                var imageWidth = document.getElementsByClassName('product-small-image')[0].offsetWidth + 4;               
+                console.log(boxWidth + ', ' + imageWidth);
+                var visibleImagesCount = Math.floor(boxWidth / imageWidth);
+
+                this.rightArrowEnabled = this.firstImageIndex < this.images.length - visibleImagesCount;
             }
         }
     }

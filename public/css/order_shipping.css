@@ -1,1 +1,47 @@
-#content{padding:0}#content #order-shipping{padding:0;width:90%;max-width:1400px;margin:0 auto}#billing-checkbox{padding-left:34px}#billing-checkbox-label{padding-top:10px}#confirm-button{margin-left:15px;width:100px}@media (max-width:767px){h5{font-size:18px;margin-top:20px;margin-bottom:2px}label.col-form-label{font-size:15px;padding-bottom:4px}div.form-group{margin-bottom:10px}#billing-city-code,#shipping-city-code{margin-top:8px;margin-bottom:8px}}
+#content {
+  padding: 0px;
+}
+
+#content #order-shipping {
+  padding: 0px;
+  width: 90%;
+  max-width: 1400px;
+  margin: 0px auto;
+}
+
+#billing-checkbox {
+  padding-left: 34px;
+}
+
+#billing-checkbox-label {
+  padding-top: 10px;
+}
+
+#confirm-button {
+  margin-left: 15px;
+  width: 100px;
+}
+
+@media (max-width: 767px) {
+  h5 {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 2px;
+  }
+
+  label.col-form-label {
+    font-size: 15px;
+    padding-bottom: 4px;
+  }
+
+  div.form-group {
+    margin-bottom: 10px;
+  }
+
+  #shipping-city-code,
+  #billing-city-code {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
+

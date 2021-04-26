@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-    @include('user_side_panel')
-    <div class="col-lg-8 offset-lg-1">
+    <div id="user-order-details" class="col-sm-12">
         <a href="#" onclick="window.location.replace(document.referrer);">
             <button id="back-button" class="button blue">
                 <i class="add-to-cart-button fa fa-arrow-left"></i> Vissza

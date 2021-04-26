@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="product-to-cart-box">
         <button id="product-add-to-cart-button" class="button blue" v-if="_displayText" v-on:click.prevent="addProductToCart">
             Kosárba <i class="fa fa-shopping-cart"></i>
         </button>

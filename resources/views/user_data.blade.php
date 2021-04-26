@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    @include('user_side_panel')
     <user-data-component
         _shipping-name="{{ $user->shipping_name }}"
         _shipping-phone="{{ $user->shipping_phone }}"

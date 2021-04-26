@@ -1,1 +1,204 @@
-#contact{box-sizing:border-box;width:950px;height:450px;border:1px solid #e6e6e6;margin:100px auto auto}#contact #contact-infos,#contact #contact-message{display:inline-block;float:left;width:50%;height:100%;margin:0;background-color:#c21a41}#contact .contact-info{width:90%;margin:auto;color:#fff;height:50px;line-height:50px;font-size:24px}#contact .contact-info img{height:50px}#contact .contact-info a,#contact .contact-info a:focus,#contact .contact-info a:hover,#contact .contact-info a:visited{color:#fff;text-decoration:none}#contact .contact-info:first-child{margin-bottom:15px;margin-top:15px;padding-left:15px;height:60px}#contact .contact-info .contact-info-icon{display:inline-block;float:left;width:60px;height:100%;text-align:center}#contact .contact-info .contact-info-text{display:inline-block;float:right;width:calc(100% - 60px);height:100%;text-align:left}#contact #contact-message{background-image:url(/images/envelope.svg);background-repeat:no-repeat;background-color:#d21e49;background-size:80px auto;background-position-x:10px;background-position-y:15px}#contact #contact-message #success-text{width:90%;margin:10px auto auto;color:#fff}#contact #contact-message label{width:100%;height:70px;line-height:50px;font-size:22px;color:#fff;padding-left:105px;padding-top:15px}#contact #contact-message input,#contact #contact-message textarea{width:90%;margin:12px auto;border-radius:2px;resize:none}#contact #contact-message #contact-text{height:195px}#contact #contact-message #send-message-button{border:1px solid #fff;float:right;margin-right:5%}@media (max-width:850px){#contact{height:auto;display:block;padding-bottom:20px;background-color:#d21e49;margin:0 10px 50px}#contact #contact-infos,#contact #contact-message{display:block;float:none;width:100%;height:450px}#contact #contact-infos{padding-top:10px;padding-bottom:50px;height:auto}#contact #contact-message{background-position-x:22px}#contact #contact-message label{padding-left:115px;font-size:20px}#contact .contact-info{width:calc(100% - 20px)}}@media (max-width:550px){#content{padding:0}#contact{margin:50px 20px;width:calc(100% - 40px)}#contact #contact-message{background-size:60px auto;background-position-y:20px}#contact #contact-message label{padding-left:90px;font-size:20px}}@media (max-width:450px){#contact #contact-message label{font-size:16px}#contact .contact-info-text{font-size:18px;line-height:46px}#contact .contact-info-icon{font-size:20px}}@media (max-width:380px){#contact{width:calc(100% - 8px);margin-left:4px;margin-right:0}#contact #contact-message label{font-size:15px}#contact .contact-info-text{font-size:16px;line-height:46px}#contact .contact-info-icon{font-size:24px}}
+#contact {
+  box-sizing: border-box;
+  width: 950px;
+  height: 450px;
+  border: 1px solid #e6e6e6;
+  margin: auto;
+  margin-top: 100px;
+}
+
+#contact #contact-message,
+#contact #contact-infos {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  height: 100%;
+  margin: 0px;
+  background-color: #c21a41;
+}
+
+#contact .contact-info {
+  width: 90%;
+  margin: auto;
+  color: white;
+  height: 50px;
+  line-height: 50px;
+  font-size: 24px;
+}
+
+#contact .contact-info img {
+  height: 50px;
+}
+
+#contact .contact-info a,
+#contact .contact-info a:hover,
+#contact .contact-info a:focus,
+#contact .contact-info a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+#contact .contact-info:first-child {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding-left: 15px;
+  height: 60px;
+}
+
+#contact .contact-info .contact-info-icon {
+  display: inline-block;
+  float: left;
+  width: 60px;
+  height: 100%;
+  text-align: center;
+}
+
+#contact .contact-info .contact-info-text {
+  display: inline-block;
+  float: right;
+  width: calc(100% - 60px);
+  height: 100%;
+  text-align: left;
+}
+
+#contact #contact-message {
+  background-image: url("/images/envelope.svg");
+  background-repeat: no-repeat;
+  background-color: #d21e49;
+  background-size: 80px auto;
+  background-position-x: 10px;
+  background-position-y: 15px;
+}
+
+#contact #contact-message #success-text {
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  color: white;
+}
+
+#contact #contact-message label {
+  width: 100%;
+  height: 70px;
+  line-height: 50px;
+  font-size: 22px;
+  color: white;
+  padding-left: 105px;
+  padding-top: 15px;
+}
+
+#contact #contact-message input,
+#contact #contact-message textarea {
+  width: 90%;
+  margin: 12px auto;
+  border-radius: 2px;
+  resize: none;
+}
+
+#contact #contact-message #contact-text {
+  height: 195px;
+}
+
+#contact #contact-message #send-message-button {
+  border: 1px solid white;
+  float: right;
+  margin-right: 5%;
+}
+
+@media (max-width: 850px) {
+  #contact {
+    height: auto;
+    display: block;
+    padding-bottom: 20px;
+    background-color: #d21e49;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #contact #contact-message,
+  #contact #contact-infos {
+    display: block;
+    float: none;
+    width: 100%;
+    height: 450px;
+  }
+
+  #contact #contact-infos {
+    padding-top: 10px;
+    padding-bottom: 50px;
+    height: auto;
+  }
+
+  #contact #contact-message {
+    background-position-x: 22px;
+  }
+
+  #contact #contact-message label {
+    padding-left: 115px;
+    font-size: 20px;
+  }
+
+  #contact .contact-info {
+    width: calc(100% - 20px);
+  }
+}
+
+@media (max-width: 550px) {
+  #content {
+    padding: 0px;
+  }
+
+  #contact {
+    margin: 50px 20px;
+    width: calc(100% - 40px);
+  }
+
+  #contact #contact-message {
+    background-size: 60px auto;
+    background-position-y: 20px;
+  }
+
+  #contact #contact-message label {
+    padding-left: 90px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  #contact #contact-message label {
+    font-size: 16px;
+  }
+
+  #contact .contact-info-text {
+    font-size: 18px;
+    line-height: 46px;
+  }
+
+  #contact .contact-info-icon {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  #contact {
+    width: calc(100% - 8px);
+    margin-left: 4px;
+    margin-right: 0px;
+  }
+
+  #contact #contact-message label {
+    font-size: 15px;
+  }
+
+  #contact .contact-info-text {
+    font-size: 16px;
+    line-height: 46px;
+  }
+
+  #contact .contact-info-icon {
+    font-size: 24px;
+  }
+}
+

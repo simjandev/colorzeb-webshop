@@ -41,6 +41,17 @@ a, a:active, a:hover, a:visited {
         background-color: $first;
     }
 
+    .desktop-link > a{
+        box-sizing: border-box;
+        height: 43px;
+        line-height: 28px;
+    }
+
+    .dropdown-item {
+        height: 32px;
+        line-height: 30px;
+    }
+
     a, a:active, a:hover, a:visited {
         text-decoration: none;
         outline: none;
@@ -138,7 +149,7 @@ html, body{
     box-sizing: border-box;
     height: 30px !important;
     padding: 0px;
-    margin-top: 7px;
+    margin-top: 4px;
     margin-left: 5px;
     border-radius: 9999px;
     overflow: hidden;
@@ -368,6 +379,5 @@ html, body{
 @import './vue_components/double_slider.scss';
 @import './vue_components/navbar_cart.scss';
 
-@import './vue_components/admin_sidebar.scss';
 @import './vue_components/modify_product.scss';
 @import './vue_components/modify_categories.scss';

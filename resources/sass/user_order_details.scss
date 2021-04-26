@@ -1,5 +1,10 @@
 @import 'variables';
 
+#user-order-details {
+    max-width: 1200px;
+    margin: auto;
+}
+
 #back-button {
     margin-top: 10px;
 }
@@ -129,5 +134,90 @@ hr:not(.gray) {
         float: left;
         width: 50%;
         height: 30px;
+    }
+}
+
+@media (max-width: 580px) {
+    #content {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    
+    #order-products {
+        .order-product {
+            padding: 0px 2px;
+
+            .order-product-name{
+                width: calc(100% - 46px - 50px);
+                font-size: 14px;
+            }
+
+            .order-product-price {
+                width: 50px;
+            }
+
+            .order-product-image {
+                padding: 0px;
+                width: 46px;
+                height: 46px;
+
+                img {
+                    width: 46px;
+                    height: 46px;
+                }
+            }
+        }
+    }
+
+    #order-customer-data, #order-customer-shipping-data, #order-customer-billing-data {
+        .order-info-label {
+            width: 90px;
+            font-size: 13px;
+            text-align: right;
+
+            &::after {
+                content: ':';
+            }
+        }
+
+        .order-info-value {
+            width: calc(100% - 90px);
+            font-size: 13px;
+        }
+
+        .order-info-line.title {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    #content {
+        #order-confirm {
+            display: block;
+            width: calc(100% - 8px);
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+
+        .order-info-value, .order-info-label {
+            font-size: 12px;
+        }
+
+        .order-info-label {
+            width: 70px;
+        }
+
+        .order-info-value {
+            width: calc(100% - 70px);
+        }
+
+        .order-info-line.title {
+            font-size: 13px;
+        }
+
+        #order-confirm-items .order-confirm-item .order-confirm-item-name {
+            font-size: 13px;
+        }
     }
 }

@@ -9,6 +9,22 @@
     padding: 0px;
 }
 
+#filters {
+    max-width: 350px;
+
+    #filters-header {
+        display: none;
+    }
+
+    #filters-body {
+        display: block;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
 #products {
     margin: 0px;
     padding-left: 0px;
@@ -296,7 +312,7 @@ label[for=discount-filter].form-check-label {
 }
 
 
-@media (max-width: 940px) {
+@media (max-width: 992px) {
     .product-box {
         width: 240px;
         height: 367px;
@@ -304,7 +320,6 @@ label[for=discount-filter].form-check-label {
     }
     
     .product-inner-box {
-
         .product-image-box {
             .product-box-discount {
                 font-size: 15px;
@@ -313,10 +328,7 @@ label[for=discount-filter].form-check-label {
                 line-height: 28px;
             }
         }
-    
-        .product-name, .product-price, .product-old-price {
-        }
-    
+
         .product-name {
             font-size: 15px;
             height: 50px;
@@ -356,9 +368,66 @@ label[for=discount-filter].form-check-label {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 767px) {
+    #filters {
+        display: block;
+        margin: auto;
+        margin-bottom: 25px;
+        
+        #filters-header {
+            display: block;
+            width: 100%;
+            background-color: $first;
+            color: $white;
+            height: 50px;
+            line-height: 54px;
+            font-size: 16px;
+            padding: 0px 10px;
+            
+            i {
+                font-size: 24px;
+            }
+
+            #filters-toggle-button {
+                float: right;
+                border: 1px solid $first-dark;
+                border-radius: 2px;
+                background-color: $first;
+                color: $white;
+                font-size: 20px;
+                outline: none;
+                width: 40px;
+                height: 40px;
+                line-height: 42px;
+                text-align: center;
+                margin-top: 5px;
+
+                &:focus, &:active {
+                    background-color: $first-dark;
+                    border: 1px solid $first-dark2;
+                }
+            }
+        }
+    }
+
+    #filter-button {
+        display: block;
+        width: 225px;
+        margin: auto;
+    }
+
+    nav:nth-child(1) {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
     #content {
         padding-left: 0px;
         padding-right: 0px;
+    }
+
+    .filter-box {
+        font-size: 13px;
     }
 }

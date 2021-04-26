@@ -1,0 +1,20 @@
+#user-data {
+    max-width: 1200px;
+    margin: auto;
+}
+
+#confirm-button {
+    margin-left: 15px;
+}
+
+@media (max-width: 767px) {
+    #shipping-city-code, #billing-city-code {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    #billing-checkbox {
+        margin-left: 15px;
+        margin-top: -10px;
+    }
+}
