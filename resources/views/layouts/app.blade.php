@@ -78,7 +78,7 @@
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-admin-others">
                                     <a class="dropdown-item" href="/products"><i class="fa fa-shopping-bag"></i> Termékek</a>    
                                         <a class="dropdown-item" href="/"><i class="fa fa-home"></i> Főoldal</a>
-                                        <a class="dropdown-item" href="/"><i class="fa fa-heart"></i> ColorZeb</a>
+                                        <a class="dropdown-item" href="/about"><i class="fa fa-heart"></i> ColorZeb</a>
                                         <a class="dropdown-item" href="/contact"><i class="fa fa-envelope"></i> Kapcsolat</a>
                                     </div>
                                 </li>
@@ -93,7 +93,7 @@
                                 </li>
                                 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/"><i class="fa fa-heart"></i> ColorZeb</a>
+                                    <a class="nav-link" href="/about"><i class="fa fa-heart"></i> ColorZeb</a>
                                 </li>
 
                                 <li class="nav-item">
@@ -127,7 +127,7 @@
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="/"><i class="fa fa-heart"></i> ColorZeb</a>
+                                <a class="nav-link" href="/about"><i class="fa fa-heart"></i> ColorZeb</a>
                             </li>
 
                             <li class="nav-item">

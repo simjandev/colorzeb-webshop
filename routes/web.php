@@ -23,7 +23,7 @@ Route::get('/order-confirm', 'OrderController@orderConfirm')->name('order-confir
 Route::get('/create-order', 'OrderController@createOrder')->name('create-order');
 
 // dev
-Route::get('/dev', 'HomeController@dev')->name('dev');
+//Route::get('/dev', 'HomeController@dev')->name('dev');
 
 // product
 Route::get('/product-image/{fileName}/{color?}/{extraPicture?}', 'ProductController@getProductImage')->name('product-image');
@@ -34,6 +34,7 @@ Route::get('/product/{id}', 'ProductController@displayProductDetails')->name('di
 // user
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'HomeController@aboutColorzeb')->name('colorzeb');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::post('/send-contact-message', 'HomeController@sendContactMessage')->name('send-contact-message');
 Route::get('/user/orders/{page?}', 'HomeController@userOrders')->name('user-orders');

@@ -39,6 +39,10 @@ class HomeController extends Controller
         return 'success';
     }
 
+    public function aboutColorzeb() {
+        return view('colorzeb');
+    }
+
     public function userOrders(Request $request, $page = '') {
         // set url for paginator
         $pageSize = 10;
